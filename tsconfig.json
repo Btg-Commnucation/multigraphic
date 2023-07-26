@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "/*": ["./public/*"],
+      "~/*": ["./src/sass/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

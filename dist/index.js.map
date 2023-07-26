@@ -1,0 +1,1 @@
+{"mappings":";;;;;AAEA,QAAQ,IAAI","sources":["src/index.ts"],"sourcesContent":["import \"./sass/style.scss\";\nimport \"typeface-quicksand\";\nconsole.log(\"Parcel watch is working !\");\n"],"names":[],"version":3,"file":"index.js.map","sourceRoot":"../"}

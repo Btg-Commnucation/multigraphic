@@ -1,0 +1,31 @@
+{
+  "name": "multigraphic-theme",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "clean": "rm -r dist/",
+    "start": "parcel watch",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "20.5.0",
+    "npm": "9.8.1"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.9.3",
+    "@parcel/transformer-sass": "^2.9.3",
+    "@parcel/transformer-typescript-types": "^2.9.3",
+    "parcel": "^2.9.3",
+    "sass": "^1.64.1"
+  },
+  "dependencies": {
+    "typeface-quicksand": "^1.1.13",
+    "typescript": "^5.1.6"
+  }
+}
