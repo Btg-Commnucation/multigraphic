@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],

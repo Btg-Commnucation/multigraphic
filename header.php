@@ -11,5 +11,61 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <header>
-        <h1>Header</h1>
+        <div class="header-container">
+            <a href="<?= home_url("/") ?>" class="logo-link">
+                <img src=" <?= get_template_directory_uri(); ?>/public/multigraphic-logo.png" alt="Logo Multigraphic" />
+            </a>
+            <?php if (has_nav_menu("main-menu")) :
+                wp_nav_menu(
+                    array(
+                        "theme_location" => "main-menu",
+                        "container" => "nav",
+                        "container_class" => "main-menu"
+                    )
+                );
+            ?>
+            <?php endif; ?>
+            <?php if (have_rows('reseaux_sociaux', 'option')) : ?>
+                <nav class="rs">
+                    <ul class="rs-container">
+                        <?php while (have_rows('reseaux_sociaux', 'option')) : the_row();
+                            $link = get_sub_field('lien');
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            $image = get_sub_field('image_haut_de_page');
+                        ?>
+                            <li>
+                                <a href="<?= esc_url($link['url']); ?>" target="<?= esc_attr($link_target); ?>">
+                                    <span class="screen-reader-text">
+                                        <?= esc_html($link['title']); ?>
+                                    </span>
+                                    <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image["alt"]); ?>" />
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                    <?php $external_link = get_field('lien_international', 'option');
+                    $external_link_target = $external_link['target'] ? $external_link['target'] : '_self';
+                    ?>
+                    <a href="<?= esc_url($external_link['url']); ?>" target="<?= esc_attr($external_link_target); ?>" class="external-link">
+                        <?= esc_html($external_link['title']); ?>
+                        <span class="sub-text"><?php the_field('sous_texte_lien_international', 'option'); ?></span>
+                    </a>
+                </nav>
+            <?php endif; ?>
+        </div>
     </header>
+    <section class="newsletter-container">
+        <div id="newsletter-toggle">
+            <img src="<?= get_template_directory_uri(); ?>/public/newsletter.svg" alt="ouvrir la newsletter" />
+            <p><?php the_field('texte_button', 'options'); ?></p>
+        </div>
+        <div id="newsletter-show" class="hidden">
+            <div class="news-container">
+                <div class="hero-newsletter">
+                    <h3><?php the_field('titre_newsletter', 'option'); ?></h3>
+                    <img src="<?= get_template_directory_uri() ?>/public/close-newsletter.svg" alt="Close newsletter" id="close-newsletter">
+                </div>
+                <div class="newsletter-content"></div>
+            </div>
+        </div>
+    </section>

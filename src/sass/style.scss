@@ -1,5 +1,9 @@
 @use "./base";
+@use "./abstracts" as var;
+@use "./layouts";
+@use "./components";
 
-body {
-  font-family: "Quicksand", sans-serif;
+h3 {
+  @include var.fontSize(2.4rem);
+  font-weight: 600;
 }
