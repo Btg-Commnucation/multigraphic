@@ -12,6 +12,7 @@
     <?php wp_body_open(); ?>
     <header>
         <div class="header-container">
+            <?php get_template_part("parts/responsive-menu"); ?>
             <a href="<?= home_url("/") ?>" class="logo-link">
                 <img src=" <?= get_template_directory_uri(); ?>/public/multigraphic-logo.png" alt="Logo Multigraphic" />
             </a>
