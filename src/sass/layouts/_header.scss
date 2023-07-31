@@ -2,6 +2,7 @@
 
 header {
   width: 100%;
+  border-bottom: 6px solid black;
 }
 
 .header-container {
@@ -262,6 +263,10 @@ header {
 
       @include var.breakpoint(1000px) {
         width: 65vw;
+      }
+
+      @include var.breakpoint(mobile) {
+        width: 100vw;
       }
     }
 

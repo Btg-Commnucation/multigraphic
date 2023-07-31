@@ -16,11 +16,10 @@
 
 @mixin fontSize($size, $maxSize: $size) {
   @if $maxSize == $size {
-    font-size: $size;
+    font-size: #{$size}px;
   } @else {
     @include responsiveElem(font-size, $size, $maxSize);
   }
-  line-height: $size;
 }
 
 @mixin responsiveElem(

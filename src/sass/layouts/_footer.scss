@@ -1,0 +1,42 @@
+@use "../abstracts" as var;
+
+footer {
+  background: var.$blue;
+
+  h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .container-narrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5.2rem;
+    padding-block: 4.6rem 2.6rem;
+  }
+
+  .list-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.9rem;
+    justify-items: start;
+    align-items: start;
+    @include var.fontSize(14);
+    color: white;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .rs-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}

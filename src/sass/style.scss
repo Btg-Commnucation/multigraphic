@@ -7,3 +7,8 @@ h3 {
   @include var.fontSize(2.4rem);
   font-weight: 600;
 }
+
+.container-narrow {
+  max-width: 66%;
+  margin-inline: auto;
+}

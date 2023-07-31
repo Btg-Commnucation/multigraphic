@@ -109,6 +109,7 @@ ul {
 }
 
 header {
+  border-bottom: 6px solid #000;
   width: 100%;
 }
 
@@ -187,9 +188,8 @@ header {
 }
 
 #menu-menu-principal-1 a {
+  font-size: 2rempx;
   color: #0662a8;
-  font-size: 2rem;
-  line-height: 2rem;
   text-decoration: none;
   transition: all .3s ease-in-out;
 }
@@ -225,6 +225,7 @@ header {
 
 .rs .external-link {
   color: #fff;
+  font-size: 2rempx;
   background: #000;
   flex-direction: column;
   justify-content: center;
@@ -232,17 +233,14 @@ header {
   height: -moz-fit-content;
   height: fit-content;
   padding: 2.6rem 1.6rem;
-  font-size: 2rem;
   font-weight: 700;
-  line-height: 2rem;
   text-decoration: none;
   display: flex;
 }
 
 .rs .external-link span {
-  font-size: 1.4rem;
+  font-size: 1.4rempx;
   font-weight: 300;
-  line-height: 1.4rem;
 }
 
 @media (width <= 1409px) {
@@ -286,9 +284,8 @@ header {
 }
 
 #newsletter-toggle p {
+  font-size: 1.7rempx;
   text-align: center;
-  font-size: 1.7rem;
-  line-height: 1.7rem;
 }
 
 @media (width <= 1330px) {
@@ -399,6 +396,12 @@ header {
   }
 }
 
+@media (width <= 1330px) and (width <= 768px) {
+  .responsive-menu #responsive-menu-container {
+    width: 100vw;
+  }
+}
+
 @media (width <= 1330px) {
   .responsive-menu .responsive-container {
     flex-direction: column;
@@ -430,10 +433,9 @@ header {
   }
 
   .responsive-menu .responsive-container #newsletter-toggle strong {
+    font-size: 2rempx;
     color: #000;
-    font-size: 2rem;
     font-weight: 700;
-    line-height: 2rem;
   }
 
   .responsive-menu #menu-menu-principal {
@@ -446,10 +448,9 @@ header {
   }
 
   .responsive-menu #menu-menu-principal a {
+    font-size: 2rempx;
     color: #0662a8;
-    font-size: 2rem;
     font-weight: 600;
-    line-height: 2rem;
     text-decoration: none;
   }
 
@@ -469,10 +470,54 @@ header {
   }
 }
 
+footer {
+  background: #0662a8;
+}
+
+footer h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+footer .container-narrow {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5.2rem;
+  padding-block: 4.6rem 2.6rem;
+  display: flex;
+}
+
+footer .list-footer {
+  color: #fff;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: start;
+  gap: 1.9rem;
+  font-size: 14px;
+  display: grid;
+}
+
+footer .list-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .rs-footer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  display: flex;
+}
+
 h3 {
-  font-size: 2.4rem;
+  font-size: 2.4rempx;
   font-weight: 600;
-  line-height: 2.4rem;
+}
+
+.container-narrow {
+  max-width: 66%;
+  margin-inline: auto;
 }
 
 @font-face {

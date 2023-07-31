@@ -4,7 +4,10 @@
   "distDir": "dist",
   "type": "module",
   "parcel-namer-hashless": {
-    "include": [".js$", ".css$"],
+    "include": [
+      ".js$",
+      ".css$"
+    ],
     "mode": "all"
   },
   "version": "1.0.0",
