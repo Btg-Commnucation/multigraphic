@@ -36,4 +36,5 @@ register_nav_menus([
     'main-menu' => 'Menu Principal',
     'societe-menu' => 'Menu société Mutligraphic',
     'menu-products' => 'Menu nos produits',
+    'footer-menu' => 'Menu bas de page'
 ]);

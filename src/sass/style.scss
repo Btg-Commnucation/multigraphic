@@ -3,12 +3,40 @@
 @use "./layouts";
 @use "./components";
 
+.container-narrow {
+  max-width: 71%;
+  margin-inline: auto;
+
+  @include var.breakpoint(tablet) {
+    max-width: 95%;
+  }
+}
+
+.btn {
+  border: 1px solid black;
+  text-decoration: none;
+  @include var.fontSize(20);
+  font-weight: 600;
+  padding: 1.6rem;
+  color: black;
+}
+
+h1 {
+  font-size: calc(35px + (41 - 35) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+}
+
+h2 {
+  font-size: calc(39px + (49 - 39) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+}
+
 h3 {
   @include var.fontSize(2.4rem);
   font-weight: 600;
 }
 
-.container-narrow {
-  max-width: 66%;
-  margin-inline: auto;
+h4 {
+  font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
 }

@@ -1,7 +1,7 @@
 import "typeface-quicksand";
 
-const newsletterToggle: HTMLElement | null =
-  document.getElementById("newsletter-toggle");
+const newsletterToggle: NodeListOf<HTMLElement> | null =
+  document.querySelectorAll(".newsletter-toggle");
 const newsletter: HTMLElement | null =
   document.getElementById("newsletter-show");
 
@@ -27,11 +27,13 @@ if (responsiveMenu && closeBurger) {
 }
 
 if (newsletterToggle && newsletter) {
-  newsletterToggle.addEventListener("click", () => {
-    newsletter.classList.toggle("hidden");
-    if (responsiveMenu && responsiveMenu.classList.contains("open")) {
-      responsiveMenu.classList.remove("open");
-    }
+  newsletterToggle.forEach((element) => {
+    element.addEventListener("click", () => {
+      newsletter.classList.remove("hidden");
+      if (responsiveMenu && responsiveMenu.classList.contains("open")) {
+        responsiveMenu.classList.remove("open");
+      }
+    });
   });
 }
 

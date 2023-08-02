@@ -56,7 +56,7 @@
         </div>
     </header>
     <section class="newsletter-container">
-        <div id="newsletter-toggle">
+        <div class="newsletter-toggle">
             <img src="<?= get_template_directory_uri(); ?>/public/newsletter.svg" alt="ouvrir la newsletter" />
             <p><?php the_field('texte_button', 'options'); ?></p>
         </div>
@@ -66,7 +66,9 @@
                     <h3><?php the_field('titre_newsletter', 'option'); ?></h3>
                     <img src="<?= get_template_directory_uri() ?>/public/close-newsletter.svg" alt="Close newsletter" id="close-newsletter">
                 </div>
-                <div class="newsletter-content"></div>
+                <div class="newsletter-content">
+                    <?= do_shortcode("[sibwp_form id=2]"); ?>
+                </div>
             </div>
         </div>
     </section>

@@ -22,7 +22,7 @@
                 );
             endif;
             ?>
-            <div id="newsletter-toggle">
+            <div class="newsletter-toggle">
                 <strong>Newsletter</strong>
             </div>
             <nav class="rs responsive-rs">

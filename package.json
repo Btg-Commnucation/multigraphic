@@ -2,6 +2,11 @@
   "name": "multigraphic-theme",
   "source": "src/index.html",
   "distDir": "dist",
+  "engines": {
+    "parcel": "2.x"
+  },
+  "outputFormat": "esmodule",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "type": "module",
   "parcel-namer-hashless": {
     "include": [

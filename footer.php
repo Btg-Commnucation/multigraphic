@@ -59,6 +59,19 @@
             </nav>
         </div>
     </section>
+    <section class="black-background">
+        <?php if (has_nav_menu("footer-menu")) :
+            wp_nav_menu(
+                array(
+                    "theme_location" => "footer-menu",
+                    "container" => "nav",
+                    "container_class" => "footer-menu",
+                    'menu_class' => '',
+                    'menu_id' => ''
+                )
+            );
+        endif; ?>
+    </section>
 </footer>
 
 <?php wp_footer(); ?>

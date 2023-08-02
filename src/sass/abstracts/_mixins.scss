@@ -29,6 +29,8 @@
   $minWidth: 320,
   $maxWidth: 1920
 ) {
-  #{$property}: calc(#{$minSize}px + #{$maxSize} - #{$minWidth}) *
-    ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth}));
+  #{$property}: calc(
+    #{$minSize}px + (#{$maxSize} - #{$minWidth}) *
+      ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth}))
+  );
 }

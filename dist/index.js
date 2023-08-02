@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aUr5H":[function(require,module,exports) {
+})({"c50Bd":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "5c1b77e3b71e74eb";
+var HMR_ENV_HASH = "cc9c7c3c11da2c2f";
+module.bundle.HMR_BUNDLE_ID = "f31dc9014045c482";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,9 +573,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"h7u1C":[function(require,module,exports) {
+},{}],"bIsvN":[function(require,module,exports) {
 var _typefaceQuicksand = require("typeface-quicksand");
-const newsletterToggle = document.getElementById("newsletter-toggle");
+const newsletterToggle = document.querySelectorAll(".newsletter-toggle");
 const newsletter = document.getElementById("newsletter-show");
 const closeNewsletter = document.getElementById("close-newsletter");
 const responsiveMenu = document.getElementById("responsive-menu-container");
@@ -587,14 +587,16 @@ if (responsiveMenu && burger) burger.addEventListener("click", ()=>{
 if (responsiveMenu && closeBurger) closeBurger.addEventListener("click", ()=>{
     responsiveMenu.classList.remove("open");
 });
-if (newsletterToggle && newsletter) newsletterToggle.addEventListener("click", ()=>{
-    newsletter.classList.toggle("hidden");
-    if (responsiveMenu && responsiveMenu.classList.contains("open")) responsiveMenu.classList.remove("open");
+if (newsletterToggle && newsletter) newsletterToggle.forEach((element)=>{
+    element.addEventListener("click", ()=>{
+        newsletter.classList.remove("hidden");
+        if (responsiveMenu && responsiveMenu.classList.contains("open")) responsiveMenu.classList.remove("open");
+    });
 });
 if (closeNewsletter && newsletter) closeNewsletter.addEventListener("click", ()=>{
     newsletter.classList.add("hidden");
 });
 
-},{"typeface-quicksand":"bkqKJ"}],"bkqKJ":[function() {},{}]},["aUr5H","h7u1C"], "h7u1C", "parcelRequireb67c")
+},{"typeface-quicksand":"sOuFC"}],"sOuFC":[function() {},{}]},["c50Bd","bIsvN"], "bIsvN", "parcelRequireb67c")
 
 //# sourceMappingURL=index.js.map
