@@ -787,6 +787,23 @@ footer .black-background ul a {
   display: grid;
 }
 
+#single .same-theme .posts img {
+  width: 100%;
+}
+
+@media (max-width: 1330px) {
+  #single .same-theme .posts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5.1rem 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #single .same-theme .posts {
+    grid-template-columns: 1fr;
+  }
+}
+
 #single .same-theme ul {
   margin-left: 0;
 }
