@@ -824,6 +824,67 @@ footer .black-background ul a {
   font-size: 1.9rem;
 }
 
+#gray-background.page {
+  padding-block: 4.2rem 17.2rem;
+}
+
+#gray-background.page h1 {
+  margin-bottom: 9rem;
+}
+
+#gray-background.page h3, #gray-background.page .mt-2 {
+  margin-top: 3.2rem;
+}
+
+#error {
+  height: 70vh;
+}
+
+#error .container-narrow {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+
+#error img {
+  margin-bottom: 8.9rem;
+}
+
+#error h1 {
+  text-align: center;
+}
+
+#error h2 {
+  text-align: center;
+  color: #0662a8;
+  max-width: 61%;
+  margin-block: 2.6rem 4.9rem;
+}
+
+@media (max-width: 768px) {
+  #error h2 {
+    max-width: 100%;
+  }
+}
+
+#error .btn {
+  color: #fff;
+  text-align: center;
+  background: #000;
+}
+
+#home-template {
+  background: #f4f4f4;
+  padding-block: 5rem 15.4rem;
+}
+
+#home-template .content {
+  margin-top: 3.4rem;
+  margin-left: 6em;
+}
+
 .container-narrow {
   max-width: 71%;
   margin-inline: auto;
@@ -862,6 +923,10 @@ h3 {
 h4 {
   font-size: calc(.625vw + 18px);
   font-weight: 700;
+}
+
+.gray-background {
+  background: #f4f4f4;
 }
 
 @font-face {

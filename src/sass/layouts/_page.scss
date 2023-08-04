@@ -1,0 +1,17 @@
+@use "../abstracts" as var;
+
+#gray-background.page {
+  padding-block: 4.2rem 17.2rem;
+
+  h1 {
+    margin-bottom: 9rem;
+  }
+
+  h3 {
+    margin-top: 3.2rem;
+  }
+
+  .mt-2 {
+    margin-top: 3.2rem;
+  }
+}

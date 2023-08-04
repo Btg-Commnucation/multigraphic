@@ -1,0 +1,38 @@
+@use "../abstracts" as var;
+
+#error {
+  height: 70vh;
+
+  .container-narrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  img {
+    margin-bottom: 8.9rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    margin-block: 2.6rem 4.9rem;
+    text-align: center;
+    color: var.$blue;
+    max-width: 61%;
+
+    @include var.breakpoint(mobile) {
+      max-width: 100%;
+    }
+  }
+
+  .btn {
+    background: black;
+    color: white;
+    text-align: center;
+  }
+}
