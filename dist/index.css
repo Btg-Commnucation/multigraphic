@@ -974,6 +974,119 @@ footer .black-background ul a {
   font-size: 1.9rem;
 }
 
+#contact .form {
+  background: #f4f4f4;
+  padding-block: 4.2rem 6.5rem;
+}
+
+#contact h1 {
+  margin-bottom: 2.8rem;
+}
+
+#contact .form-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin-inline: auto;
+  display: flex;
+}
+
+#contact .form-title {
+  background: #000;
+  width: 100%;
+  padding: 1.9rem 4.8rem;
+}
+
+#contact .form-title h3 {
+  color: #fff;
+}
+
+#contact .form-content {
+  background: #fff;
+  width: 100%;
+  padding: 4.2rem 2.9rem;
+}
+
+#contact .form-content p {
+  text-align: center;
+  margin-bottom: 5rem;
+  font-size: 1.9rem;
+}
+
+#contact .form-content form {
+  width: 71%;
+  margin-inline: auto;
+}
+
+#contact .form-content .sib_signup_box_inside_3 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6.3rem 3.2rem;
+  display: grid;
+}
+
+#contact label:is(.sib-telephone-area, .sib-email-area, .sib-textare-area, .sib-NOM-area, .sib-societe-area) {
+  display: none;
+}
+
+#contact textarea {
+  min-height: 167px;
+  margin-bottom: 1.4rem;
+}
+
+#contact .fields .required {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  display: flow-root;
+}
+
+#contact .fields .consent {
+  align-items: start;
+  gap: 1.1rem;
+  display: flex;
+}
+
+#contact .fields label {
+  font-size: 1.2rem;
+}
+
+#contact textarea, #contact input:not([type="checkbox"]) {
+  color: #000;
+  border: 1px solid #000;
+  width: 100%;
+  padding: 1.8rem 3rem;
+  font-size: 1.9rem;
+}
+
+#contact input[type="submit"] {
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+#contact .sib-textarea-area {
+  grid-area: 3 / 1 / auto / 3;
+}
+
+#contact .sib_msg_disp {
+  display: none !important;
+}
+
+#contact .submit-btn {
+  grid-column: 2;
+  justify-self: end;
+}
+
+#contact .submit-btn input {
+  color: #fff;
+  background: #000;
+  transition: all .3s ease-in-out;
+}
+
+#contact .submit-btn input:hover {
+  color: #000;
+  background: #fff;
+}
+
 .container-narrow {
   max-width: 71%;
   margin-inline: auto;
