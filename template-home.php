@@ -10,8 +10,11 @@ get_header(); ?>
     <div class="container-narrow">
         <h1><?php the_title(); ?></h1>
         <div class="content"><?php the_content(); ?></div>
+        <?php get_template_part("/parts/categories"); ?>
         <?php get_template_part("/parts/articles"); ?>
     </div>
+
+
 </main>
 
 <?php get_footer(); ?>

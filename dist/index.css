@@ -885,6 +885,95 @@ footer .black-background ul a {
   margin-left: 6em;
 }
 
+@media (max-width: 768px) {
+  #home-template .content {
+    margin-left: 0;
+  }
+}
+
+#home-template .categories {
+  margin-block: 6rem;
+}
+
+#home-template .categories ul {
+  justify-content: start;
+  align-items: center;
+  gap: 5.7rem;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  #home-template .categories ul {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  #home-template .categories ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+#home-template .categories .btn {
+  transition: all .3s ease-in-out;
+}
+
+#home-template .categories .btn.current, #home-template .categories .btn:hover {
+  color: #fff;
+  background: #000;
+}
+
+#home-template .date {
+  color: #919191;
+  font-size: 1.9rem;
+}
+
+#home-template .posts {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+  margin-top: 4rem;
+  margin-left: 0;
+  display: grid;
+}
+
+#home-template .posts li.hidden {
+  display: none;
+}
+
+#home-template .posts img {
+  width: 100%;
+}
+
+@media (max-width: 1330px) {
+  #home-template .posts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5.1rem 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #home-template .posts {
+    grid-template-columns: 1fr;
+  }
+}
+
+#home-template .post-content {
+  flex-direction: column;
+  gap: .7rem;
+  display: flex;
+}
+
+#home-template .post-content div {
+  font-size: 1.9rem;
+}
+
+#home-template .post-content a {
+  color: #0662a8;
+  margin-top: 2rem;
+  font-size: 1.9rem;
+}
+
 .container-narrow {
   max-width: 71%;
   margin-inline: auto;

@@ -7,5 +7,92 @@
   .content {
     margin-top: 3.4rem;
     margin-left: 6em;
+
+    @include var.breakpoint(mobile) {
+      margin-left: 0;
+    }
+  }
+
+  .categories {
+    margin-block: 6rem;
+
+    ul {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 5.7rem;
+
+      @include var.breakpoint(mobile) {
+        gap: 2rem;
+      }
+
+      @include var.breakpoint(700px) {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .btn {
+      transition: 0.3s ease-in-out;
+
+      &.current {
+        background: black;
+        color: white;
+      }
+
+      &:hover {
+        background: black;
+        color: white;
+      }
+    }
+  }
+
+  .date {
+    color: var.$gray;
+    font-size: 1.9rem;
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    margin-top: 4rem;
+    margin-left: 0;
+
+    li {
+      &.hidden {
+        display: none;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @include var.breakpoint(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      row-gap: 5.1rem;
+    }
+
+    @include var.breakpoint(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    div {
+      font-size: 1.9rem;
+    }
+
+    a {
+      color: var.$blue;
+      font-size: 1.9rem;
+      margin-top: 2rem;
+    }
   }
 }
