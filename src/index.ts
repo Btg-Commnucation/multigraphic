@@ -1,4 +1,6 @@
 import "typeface-quicksand";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 const newsletterToggle: NodeListOf<HTMLElement> | null =
   document.querySelectorAll(".newsletter-toggle");
@@ -71,4 +73,30 @@ if (categoriesBtn && posts) {
       handleShowPosts(element, posts);
     });
   });
+}
+
+const mapCheck = document.getElementById("map");
+
+if (mapCheck) {
+  let map = L.map("map", {
+    scrollWheelZoom: false,
+  }).setView([48.91286, 2.21152], 16);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "OpenStreetMap",
+  }).addTo(map);
+
+  let icon = L.icon({
+    iconUrl: "../wp-content/themes/multigraphic-theme/public/marker-icon.png",
+    iconSize: [25, 41],
+  });
+
+  let marker = L.marker([48.912860750660975, 2.2125231830327623], {
+    icon: icon,
+  }).addTo(map);
+
+  marker
+    .bindPopup("<strong class='popupstrong'>Multigraphic</strong>")
+    .openPopup();
 }

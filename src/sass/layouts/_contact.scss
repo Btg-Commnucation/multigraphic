@@ -8,6 +8,10 @@
 
   h1 {
     margin-bottom: 2.8rem;
+
+    @include var.breakpoint(mobile) {
+      text-align: center;
+    }
   }
 
   .form-container {
@@ -17,6 +21,10 @@
     align-items: center;
     width: 95%;
     margin-inline: auto;
+
+    @include var.breakpoint(tablet) {
+      width: 100%;
+    }
   }
 
   .form-title {
@@ -26,6 +34,10 @@
 
     h3 {
       color: white;
+
+      @include var.breakpoint(mobile) {
+        text-align: center;
+      }
     }
   }
 
@@ -43,6 +55,10 @@
     form {
       width: 71%;
       margin-inline: auto;
+
+      @include var.breakpoint(tablet) {
+        width: 100%;
+      }
     }
 
     .sib_signup_box_inside_3 {
@@ -50,6 +66,16 @@
       grid-template-columns: repeat(2, 1fr);
       row-gap: 6.3rem;
       column-gap: 3.2rem;
+
+      @include var.breakpoint(tablet) {
+        row-gap: 2.6rem;
+        column-gap: 1.5rem;
+      }
+
+      @include var.breakpoint(mobile) {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
     }
   }
 
@@ -102,6 +128,11 @@
   .sib-textarea-area {
     grid-column: 1 / 3;
     grid-row: 3;
+
+    @include var.breakpoint(mobile) {
+      grid-row: unset;
+      grid-column: 1;
+    }
   }
 
   .sib_msg_disp {
@@ -111,6 +142,10 @@
   .submit-btn {
     grid-column: 2;
     justify-self: end;
+
+    @include var.breakpoint(mobile) {
+      grid-column: 1;
+    }
 
     input {
       background: black;
@@ -122,5 +157,176 @@
         background: white;
       }
     }
+  }
+
+  .address {
+    padding-block: 6.2rem 9.25rem;
+  }
+
+  .address-container {
+    max-width: 95%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7.1rem;
+    align-items: center;
+
+    @include var.breakpoint(tablet) {
+      max-width: 100%;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+
+      .left {
+        width: 75%;
+      }
+    }
+
+    @include var.breakpoint(mobile) {
+      gap: 0;
+
+      .left {
+        width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .right {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      color: white;
+      font-size: 2.2rem;
+
+      @include var.breakpoint(tablet) {
+        justify-self: end;
+        width: 70%;
+      }
+
+      @include var.breakpoint(mobile) {
+        width: 100%;
+        padding: 3.9rem 1.5rem;
+      }
+
+      h2 {
+        margin-bottom: 1.4rem;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 1em;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .background {
+        background: var.$blue;
+        position: absolute;
+        width: 130%;
+        height: 100%;
+        left: -30%;
+        bottom: -10%;
+        z-index: -1;
+
+        @include var.breakpoint(tablet) {
+          width: 110%;
+          left: -10%;
+          height: 155%;
+          bottom: unset;
+          top: -40%;
+        }
+
+        @include var.breakpoint(mobile) {
+          width: 100%;
+          left: 0;
+          height: 100%;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .warehouse {
+    max-width: 95%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7.1rem;
+    color: var.$blue;
+    margin-top: 3.4rem;
+
+    @include var.breakpoint(tablet) {
+      grid-template-columns: 1fr;
+      max-width: 70%;
+      margin-top: 10.7rem;
+      margin-inline: auto 0;
+    }
+
+    @include var.breakpoint(mobile) {
+      max-width: 100%;
+      width: 100%;
+      margin-top: 1.9rem;
+      margin-inline: auto;
+    }
+
+    h2 {
+      color: var.$blue;
+      margin-bottom: 2.5rem;
+    }
+
+    p {
+      font-size: 2.2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 1em;
+      }
+    }
+
+    a:not(.btn) {
+      text-decoration: none;
+      color: var.$blue;
+    }
+
+    .btn {
+      margin-top: 5.3rem;
+      font-size: 2rem;
+      background: var.$blue;
+      border-color: var.$blue;
+      color: white;
+      display: flow-root;
+      width: fit-content;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: white;
+        color: var.$blue;
+      }
+    }
+  }
+
+  .map-container {
+    height: 448px;
+    width: 100%;
+
+    @include var.breakpoint(mobile) {
+      height: 179px;
+    }
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+
+  .popupstrong {
+    font-size: 1.8rem;
+    font-family: "Quicksand", sans-serif;
   }
 }
