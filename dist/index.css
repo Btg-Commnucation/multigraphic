@@ -532,7 +532,7 @@ header .current_page_item:after {
 }
 
 @media (max-width: 1330px) {
-  .responsive-menu .responsive-container #newsletter-toggle {
+  .responsive-menu .responsive-container .newsletter-toggle {
     bottom: unset;
     right: unset;
     width: 183px;
@@ -540,7 +540,7 @@ header .current_page_item:after {
     position: relative;
   }
 
-  .responsive-menu .responsive-container #newsletter-toggle strong {
+  .responsive-menu .responsive-container .newsletter-toggle strong {
     color: #000;
     font-size: 20px;
     font-weight: 700;
@@ -1321,6 +1321,75 @@ footer .black-background ul a {
 #contact .popupstrong {
   font-family: Quicksand, sans-serif;
   font-size: 1.8rem;
+}
+
+#engagements .hero-banner .container-narrow {
+  grid-template-columns: .4fr .6fr;
+  place-items: center;
+  display: grid;
+}
+
+#engagements .hero-banner-content {
+  color: #fff;
+  z-index: 10;
+  background: #0662a8;
+  margin-right: -5em;
+  padding: 5rem;
+  font-size: 1.9rem;
+  position: relative;
+}
+
+#engagements .hero-banner-content h2 {
+  margin-bottom: 2.5rem;
+}
+
+#engagements .hero-banner-content p:not(last-child) {
+  margin-bottom: 2em;
+}
+
+#engagements .programme {
+  background: #f4f4f4;
+  margin-top: 4.6rem;
+  padding-block: 4.7rem 7.9rem;
+}
+
+#engagements .programme h4 {
+  margin-bottom: 2.6rem;
+  font-size: calc(.625vw + 27px);
+}
+
+#engagements .programme .programme-content div {
+  flex-direction: column;
+  gap: 1em;
+  font-size: 1.9rem;
+  display: flex;
+}
+
+#engagements .programme .programme-content .btn {
+  color: #fff;
+  background: #000;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 3.8rem;
+  font-size: 2rem;
+  transition: all .3s ease-in-out;
+  display: flow-root;
+}
+
+#engagements .programme .programme-content .btn:hover {
+  color: #000;
+  background: none;
+}
+
+#engagements .programme img {
+  max-width: 331px;
+}
+
+#engagements .programme .container-narrow {
+  justify-content: center;
+  align-items: center;
+  gap: 5.8rem;
+  display: flex;
 }
 
 .container-narrow {
