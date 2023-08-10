@@ -30,5 +30,23 @@ get_header();
             </div>
         </div>
     </section>
+    <section class="gammes">
+        <div class="left-gammes">
+            <div>
+                <?php the_field('texte_produits'); ?>
+            </div>
+        </div>
+        <?php $img_gammes = get_field('image_produits') ?>
+        <img src="<?= esc_url($img_gammes['url']); ?>" alt="<?= esc_attr($img_gammes['alt']); ?>">
+    </section>
+    <section class="partners">
+        <?php $img_partners = get_field('image_partenaire');  ?>
+        <img src="<?= esc_url($img_partners['url']); ?>" alt="<?= esc_attr($img_partners['alt']); ?>">
+        <div class="partners_content">
+            <div class="content-container">
+                <?php the_field('texte_partenaire'); ?>
+            </div>
+        </div>
+    </section>
 </main>
 <?php get_footer(); ?>

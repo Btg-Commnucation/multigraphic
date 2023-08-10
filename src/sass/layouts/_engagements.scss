@@ -5,6 +5,18 @@
     display: grid;
     grid-template-columns: 0.4fr 0.6fr;
     place-items: center;
+
+    @include var.breakpoint(tablet) {
+      max-width: 100%;
+      display: flex;
+      justify-content: end;
+
+      img {
+        max-width: 60%;
+        object-fit: cover;
+        min-height: 416px;
+      }
+    }
   }
 
   .hero-banner-content {
@@ -15,6 +27,11 @@
     position: relative;
     margin-right: -5em;
     z-index: 10;
+
+    @include var.breakpoint(tablet) {
+      max-width: 40%;
+      font-size: 1.6rem;
+    }
 
     h2 {
       margin-bottom: 2.5rem;
@@ -68,6 +85,102 @@
       justify-content: center;
       align-items: center;
       gap: 5.8rem;
+    }
+  }
+
+  .gammes {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    h2 {
+      margin-bottom: 3.8rem;
+    }
+
+    strong {
+      margin-bottom: 1.9rem;
+    }
+
+    img {
+      position: relative;
+      margin-left: -5%;
+    }
+  }
+
+  .left-gammes {
+    background: var.$blue;
+    color: white;
+    height: 554px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 56%;
+
+    @include var.breakpoint(tablet) {
+      width: 61%;
+    }
+
+    div {
+      margin-inline: auto;
+      width: 57%;
+    }
+
+    ul {
+      margin-left: 2.5em;
+    }
+  }
+
+  .partners {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    @include var.breakpoint(tablet) {
+      img {
+        width: 60%;
+      }
+    }
+  }
+
+  .partners_content {
+    background: white;
+    width: 1108px;
+    padding-block: 9.1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: -18%;
+
+    .content-container {
+      max-width: 86%;
+      margin-inline: auto;
+      font-size: 1.9rem;
+    }
+
+    h4 {
+      font-size: calc(29px + (39 - 29) * ((100vw - 320px) / (1920 - 320)));
+      font-weight: 700;
+      margin-bottom: 4.2rem;
+    }
+
+    strong {
+      margin-bottom: 4.8rem;
+    }
+
+    a {
+      border: 1px solid black;
+      text-decoration: none;
+      @include var.fontSize(20);
+      font-weight: 600;
+      padding: 1.6rem;
+      color: white;
+      background: black;
+      margin-block: 2rem 6.4rem;
+      display: flow-root;
+      width: fit-content;
     }
   }
 }
