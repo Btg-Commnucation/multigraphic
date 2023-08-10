@@ -1466,6 +1466,10 @@ footer .black-background ul a {
 }
 
 @media (max-width: 1330px) {
+  #engagements .partners {
+    margin-bottom: 20.8rem;
+  }
+
   #engagements .partners img {
     width: 60%;
   }
@@ -1481,6 +1485,13 @@ footer .black-background ul a {
   padding-block: 9.1rem 3rem;
   display: flex;
   position: relative;
+}
+
+@media (max-width: 1330px) {
+  #engagements .partners_content {
+    margin-left: -28%;
+    top: 17rem;
+  }
 }
 
 #engagements .partners_content .content-container {
@@ -1510,7 +1521,13 @@ footer .black-background ul a {
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  transition: all .3s ease-in-out;
   display: flow-root;
+}
+
+#engagements .partners_content a:hover {
+  color: #000;
+  background: none;
 }
 
 .container-narrow {

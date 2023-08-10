@@ -137,6 +137,7 @@
     align-items: center;
 
     @include var.breakpoint(tablet) {
+      margin-bottom: 20.8rem;
       img {
         width: 60%;
       }
@@ -153,6 +154,11 @@
     align-items: center;
     position: relative;
     margin-left: -18%;
+
+    @include var.breakpoint(tablet) {
+      top: 17rem;
+      margin-left: -28%;
+    }
 
     .content-container {
       max-width: 86%;
@@ -181,6 +187,12 @@
       margin-block: 2rem 6.4rem;
       display: flow-root;
       width: fit-content;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: transparent;
+        color: black;
+      }
     }
   }
 }
