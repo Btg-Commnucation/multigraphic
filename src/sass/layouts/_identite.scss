@@ -1,0 +1,78 @@
+@use "../abstracts" as var;
+
+#identite {
+  .hero-banner {
+    margin-top: 5.6rem;
+    .container-narrow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5.2rem;
+    }
+
+    h1 {
+      color: var.$blue;
+      max-width: 69%;
+    }
+
+    img {
+      max-width: 55%;
+    }
+  }
+
+  .implantation {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+
+    .blue-content {
+      background: var.$blue;
+      color: white;
+      padding-block: 14.3rem 10.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 71%;
+
+      div {
+        width: 42%;
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 17em;
+      top: -22em;
+    }
+  }
+
+  .histoire {
+    padding-block: 6.1rem;
+    position: relative;
+
+    .background-gray {
+      background: var.$lightGray;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .container-narrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .blue-text {
+      background: var.$blue;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
