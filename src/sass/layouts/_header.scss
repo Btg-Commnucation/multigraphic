@@ -43,8 +43,8 @@ header {
   }
 
   @include var.breakpoint(1436px) {
-    margin-left: 1.5rem;
-    margin-right: 0.8rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   @include var.breakpoint(1409px) {
@@ -93,6 +93,14 @@ header {
     color: var.$blue;
     text-decoration: none;
     transition: 0.3s ease-in-out;
+
+    @include var.breakpoint(1436px) {
+      @include var.fontSize(16);
+    }
+
+    @include var.breakpoint(tablet) {
+      @include var.fontSize(20);
+    }
 
     &:hover {
       color: black;
@@ -157,6 +165,10 @@ header {
   justify-content: center;
   align-items: center;
   gap: 2.4rem;
+
+  @include var.breakpoint(1436px) {
+    gap: 0.8rem;
+  }
 
   @include var.breakpoint(428px) {
     gap: 1.4rem;

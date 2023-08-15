@@ -156,8 +156,8 @@ header .current_page_item:after {
 
 @media (max-width: 1436px) {
   .header-container {
-    margin-left: 1.5rem;
-    margin-right: .8rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -215,6 +215,18 @@ header .current_page_item:after {
   font-size: 20px;
   text-decoration: none;
   transition: all .3s ease-in-out;
+}
+
+@media (max-width: 1436px) {
+  #menu-menu-principal-1 a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1330px) {
+  #menu-menu-principal-1 a {
+    font-size: 20px;
+  }
 }
 
 #menu-menu-principal-1 a:hover {
@@ -287,6 +299,12 @@ header .current_page_item:after {
   align-items: center;
   gap: 2.4rem;
   display: flex;
+}
+
+@media (max-width: 1436px) {
+  .rs-container {
+    gap: .8rem;
+  }
 }
 
 @media (max-width: 428px) {
@@ -1626,6 +1644,10 @@ footer .black-background ul a {
   background: none;
 }
 
+#identite {
+  padding-bottom: 8.3rem;
+}
+
 #identite .hero-banner {
   margin-top: 5.6rem;
 }
@@ -1682,24 +1704,58 @@ footer .black-background ul a {
   z-index: -1;
   background: #f4f4f4;
   width: 100%;
-  height: 100%;
+  height: 78%;
   position: absolute;
   inset: 0;
 }
 
 #identite .histoire .container-narrow {
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  gap: 8.6rem;
   display: flex;
   position: relative;
 }
 
+#identite .histoire .container-narrow img {
+  z-index: 3;
+  max-width: 50%;
+  position: relative;
+}
+
+#identite .histoire .container-narrow .content {
+  z-index: 1;
+  margin-top: 3em;
+  font-size: calc(.1875vw + 15.4px);
+  position: relative;
+}
+
+#identite .histoire .container-narrow h2 {
+  margin-bottom: 2.5rem;
+}
+
 #identite .histoire .blue-text {
   color: #fff;
+  z-index: 2;
   background: #0662a8;
+  max-width: 55%;
+  padding: 4.8rem 7rem 8.8rem 11.9rem;
+  font-size: calc(.375vw + 18.8px);
+  font-weight: 600;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -6em;
+  right: 1em;
+}
+
+#identite article {
+  margin-top: 10rem;
+  font-size: calc(.1875vw + 15.4px);
+}
+
+#identite article h3 {
+  margin-bottom: 2.6rem;
+  font-size: calc(.5625vw + 38.2px);
+  font-weight: 700;
 }
 
 .container-narrow {
