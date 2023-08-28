@@ -4,6 +4,9 @@
   padding-bottom: 8.3rem;
   .hero-banner {
     margin-top: 5.6rem;
+    position: relative;
+    z-index: 2;
+
     .container-narrow {
       display: flex;
       flex-direction: column;
@@ -13,7 +16,8 @@
 
     h1 {
       color: var.$blue;
-      max-width: 69%;
+      max-width: 75%;
+      text-transform: uppercase;
     }
 
     img {
@@ -28,6 +32,7 @@
     position: relative;
 
     .blue-content {
+      margin-top: -6em;
       background: var.$blue;
       color: white;
       padding-block: 14.3rem 10.1rem;
@@ -36,15 +41,31 @@
       align-items: center;
       width: 71%;
 
+      @include var.breakpoint(tablet) {
+        width: 100%;
+        justify-content: start;
+      }
+
       div {
         width: 42%;
+        margin-left: 3em;
       }
     }
 
     img {
       position: absolute;
       right: 17em;
-      top: -22em;
+      top: -26em;
+
+      @include var.breakpoint(1849px) {
+        right: 10em;
+      }
+
+      @include var.breakpoint(1616px) {
+        right: 12em;
+        top: -16em;
+        max-width: 29%;
+      }
     }
   }
 

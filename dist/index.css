@@ -1649,7 +1649,9 @@ footer .black-background ul a {
 }
 
 #identite .hero-banner {
+  z-index: 2;
   margin-top: 5.6rem;
+  position: relative;
 }
 
 #identite .hero-banner .container-narrow {
@@ -1661,7 +1663,8 @@ footer .black-background ul a {
 
 #identite .hero-banner h1 {
   color: #0662a8;
-  max-width: 69%;
+  text-transform: uppercase;
+  max-width: 75%;
 }
 
 #identite .hero-banner img {
@@ -1681,18 +1684,41 @@ footer .black-background ul a {
   justify-content: center;
   align-items: center;
   width: 71%;
+  margin-top: -6em;
   padding-block: 14.3rem 10.1rem;
   display: flex;
 }
 
+@media (max-width: 1330px) {
+  #identite .implantation .blue-content {
+    justify-content: start;
+    width: 100%;
+  }
+}
+
 #identite .implantation .blue-content div {
   width: 42%;
+  margin-left: 3em;
 }
 
 #identite .implantation img {
   position: absolute;
-  top: -22em;
+  top: -26em;
   right: 17em;
+}
+
+@media (max-width: 1849px) {
+  #identite .implantation img {
+    right: 10em;
+  }
+}
+
+@media (max-width: 1616px) {
+  #identite .implantation img {
+    max-width: 29%;
+    top: -16em;
+    right: 12em;
+  }
 }
 
 #identite .histoire {
