@@ -1661,14 +1661,35 @@ footer .black-background ul a {
   display: flex;
 }
 
+@media (max-width: 768px) {
+  #identite .hero-banner .container-narrow {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 #identite .hero-banner h1 {
   color: #0662a8;
   text-transform: uppercase;
   max-width: 75%;
 }
 
+@media (max-width: 768px) {
+  #identite .hero-banner h1 {
+    width: 100%;
+    margin-left: .5em;
+  }
+}
+
 #identite .hero-banner img {
   max-width: 55%;
+}
+
+@media (max-width: 768px) {
+  #identite .hero-banner img {
+    align-self: end;
+    max-width: 95%;
+  }
 }
 
 #identite .implantation {
@@ -1676,6 +1697,12 @@ footer .black-background ul a {
   align-items: center;
   display: flex;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  #identite .implantation {
+    flex-direction: column;
+  }
 }
 
 #identite .implantation .blue-content {
@@ -1701,6 +1728,13 @@ footer .black-background ul a {
   margin-left: 3em;
 }
 
+@media (max-width: 768px) {
+  #identite .implantation .blue-content div {
+    width: 100%;
+    margin-left: 1em;
+  }
+}
+
 #identite .implantation img {
   position: absolute;
   top: -26em;
@@ -1721,9 +1755,50 @@ footer .black-background ul a {
   }
 }
 
+@media (max-width: 1330px) {
+  #identite .implantation img {
+    max-width: 45%;
+    top: -25em;
+    right: 1em;
+  }
+}
+
+@media (max-width: 1314px) {
+  #identite .implantation img {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 1189px) {
+  #identite .implantation img {
+    top: -20em;
+  }
+}
+
+@media (max-width: 1050px) {
+  #identite .implantation img {
+    top: -16em;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite .implantation img {
+    right: unset;
+    max-width: 100%;
+    position: relative;
+    top: -3em;
+  }
+}
+
 #identite .histoire {
   padding-block: 6.1rem;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  #identite .histoire {
+    margin-top: -3em;
+  }
 }
 
 #identite .histoire .background-gray {
@@ -1735,6 +1810,12 @@ footer .black-background ul a {
   inset: 0;
 }
 
+@media (max-width: 1330px) {
+  #identite .histoire .background-gray {
+    height: 100%;
+  }
+}
+
 #identite .histoire .container-narrow {
   justify-content: center;
   align-items: start;
@@ -1743,10 +1824,50 @@ footer .black-background ul a {
   position: relative;
 }
 
+@media (max-width: 1689px) {
+  #identite .histoire .container-narrow {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 1330px) {
+  #identite .histoire .container-narrow {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 963px) {
+  #identite .histoire .container-narrow {
+    gap: 4.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite .histoire .container-narrow {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 3.1rem;
+  }
+}
+
 #identite .histoire .container-narrow img {
   z-index: 3;
   max-width: 50%;
   position: relative;
+}
+
+@media (max-width: 1330px) {
+  #identite .histoire .container-narrow img {
+    align-self: end;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite .histoire .container-narrow img {
+    align-self: center;
+    max-width: 100%;
+  }
 }
 
 #identite .histoire .container-narrow .content {
@@ -1754,6 +1875,24 @@ footer .black-background ul a {
   margin-top: 3em;
   font-size: calc(.1875vw + 15.4px);
   position: relative;
+}
+
+@media (max-width: 1330px) {
+  #identite .histoire .container-narrow .content {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 913px) {
+  #identite .histoire .container-narrow .content {
+    margin-bottom: 4em;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite .histoire .container-narrow .content {
+    margin-bottom: 0;
+  }
 }
 
 #identite .histoire .container-narrow h2 {
@@ -1773,15 +1912,120 @@ footer .black-background ul a {
   right: 1em;
 }
 
+@media (max-width: 1699px) {
+  #identite .histoire .blue-text {
+    max-width: 60%;
+    right: -1em;
+  }
+}
+
+@media (max-width: 1467px) {
+  #identite .histoire .blue-text {
+    bottom: -9em;
+  }
+}
+
+@media (max-width: 1363px) {
+  #identite .histoire .blue-text {
+    bottom: -10em;
+  }
+}
+
+@media (max-width: 1330px) {
+  #identite .histoire .blue-text {
+    bottom: -13em;
+    right: 5em;
+  }
+}
+
+@media (max-width: 1078px) {
+  #identite .histoire .blue-text {
+    max-width: 85%;
+    bottom: -11em;
+  }
+}
+
+@media (max-width: 933px) {
+  #identite .histoire .blue-text {
+    bottom: -12.5em;
+  }
+}
+
+@media (max-width: 899px) {
+  #identite .histoire .blue-text {
+    max-width: 90%;
+    bottom: -11em;
+    right: 0;
+  }
+}
+
+@media (max-width: 858px) {
+  #identite .histoire .blue-text {
+    bottom: -13em;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite .histoire .blue-text {
+    margin-inline: auto;
+    bottom: -15em;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 662px) {
+  #identite .histoire .blue-text {
+    max-width: 93%;
+    padding: 4.8rem 2.2rem 8.8rem;
+  }
+}
+
+@media (max-width: 460px) {
+  #identite .histoire .blue-text {
+    bottom: -18em;
+  }
+}
+
+@media (max-width: 333px) {
+  #identite .histoire .blue-text {
+    bottom: -21em;
+  }
+}
+
 #identite article {
   margin-top: 10rem;
   font-size: calc(.1875vw + 15.4px);
+}
+
+@media (max-width: 1330px) {
+  #identite article {
+    margin-top: 25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #identite article {
+    margin-top: 30rem;
+  }
+}
+
+@media (max-width: 429px) {
+  #identite article {
+    margin-top: 35rem;
+  }
 }
 
 #identite article h3 {
   margin-bottom: 2.6rem;
   font-size: calc(.5625vw + 38.2px);
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  #identite article h3 {
+    text-align: center;
+  }
 }
 
 .container-narrow {
