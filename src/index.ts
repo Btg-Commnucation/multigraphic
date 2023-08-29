@@ -1,6 +1,33 @@
 import "typeface-quicksand";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import Swiper from "swiper/bundle";
+import { SwiperOptions } from "swiper/types";
+import "swiper/css/bundle";
+
+const swiperContainer = document.querySelector(".swiper");
+
+if (swiperContainer) {
+  const swiperThumbs = new Swiper(".swiper-thumbs", {
+    spaceBetween: 21,
+    slidesPerView: 4,
+    loop: false,
+    freeMode: true,
+    loopedSlides: 4,
+    watchSlidesProgress: true,
+  });
+
+  const swiper = new Swiper(".swiper", {
+    direction: "horizontal",
+    loop: true,
+    loopedSlides: 4,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    thumbs: {
+      swiper: swiperThumbs,
+    },
+  });
+}
 
 const newsletterToggle: NodeListOf<HTMLElement> | null =
   document.querySelectorAll(".newsletter-toggle");
@@ -99,4 +126,14 @@ if (mapCheck) {
   marker
     .bindPopup("<strong class='popupstrong'>Multigraphic</strong>")
     .openPopup();
+}
+
+const formSecretField: HTMLInputElement | null =
+  document.getElementById("hidden");
+const formPageTitle: HTMLElement | null = document.querySelector(
+  "#product > .hero-banner > .container-narrow > .content > h1"
+);
+
+if (formSecretField && formPageTitle) {
+  formSecretField.value = formPageTitle.textContent;
 }

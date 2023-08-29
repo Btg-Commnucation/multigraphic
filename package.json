@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "leaflet": "^1.9.4",
+    "swiper": "^10.2.0",
     "typeface-quicksand": "^1.1.13",
     "typescript": "^5.1.6"
   },

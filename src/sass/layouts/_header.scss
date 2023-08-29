@@ -198,6 +198,8 @@ header {
     pointer-events: none;
     @include var.fontSize(1.7rem);
     text-align: center;
+    background: white;
+    padding: 0.4rem 0.6rem;
   }
 }
 
