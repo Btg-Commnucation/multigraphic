@@ -128,12 +128,32 @@ if (mapCheck) {
     .openPopup();
 }
 
+const closeDevis = document.getElementById("close-devis") as HTMLElement;
+const devisPopup = document.querySelector(".devis-container") as HTMLElement;
+const devisToggle = document.getElementById("devis-toggle") as HTMLElement;
+const formSecretFieldElement = document.getElementById("hidden");
 const formSecretField: HTMLInputElement | null =
-  document.getElementById("hidden");
-const formPageTitle: HTMLElement | null = document.querySelector(
+  formSecretFieldElement instanceof HTMLInputElement
+    ? formSecretFieldElement
+    : null;
+const formPageTitle = document.querySelector(
   "#product > .hero-banner > .container-narrow > .content > h1"
-);
+) as HTMLElement;
 
-if (formSecretField && formPageTitle) {
-  formSecretField.value = formPageTitle.textContent;
+if (closeDevis && devisPopup) {
+  closeDevis.addEventListener("click", () => {
+    devisPopup.classList.add("hidden");
+  });
+}
+
+if (devisToggle && devisPopup) {
+  devisToggle.addEventListener("click", () => {
+    devisPopup.classList.remove("hidden");
+    setTimeout(() => {
+      if (formPageTitle !== null && formSecretField !== null) {
+        formSecretField.value = formPageTitle.textContent || "";
+        console.log(formSecretField.value);
+      }
+    }, 500);
+  });
 }

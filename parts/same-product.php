@@ -15,7 +15,7 @@ if (!empty($suggested_products)) :
                     $product_categories = wc_get_product_category_list($product_id);
                 ?>
                     <li>
-                        <a href="<?= get_permalink($product_id); ?>">
+                        <a href="<?= get_permalink($product_id); ?>" class="product-link">
                             <?= $product->get_image(); ?>
                             <strong><?= $product->get_name(); ?></strong>
                             <ul>

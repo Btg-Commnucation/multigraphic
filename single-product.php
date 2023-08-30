@@ -39,7 +39,7 @@
                     <?php get_template_part('parts/download-svg'); ?>
                     Télécharger la brochure
                 </a>
-                <button class="btn brochure">
+                <button class="btn brochure" id="devis-toggle">
                     <?php get_template_part("parts/brochure"); ?>
                     Demande de devis
                 </button>

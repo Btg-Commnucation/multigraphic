@@ -669,9 +669,24 @@ if (mapCheck) {
     }).addTo(map);
     marker.bindPopup("<strong class='popupstrong'>Multigraphic</strong>").openPopup();
 }
-const formSecretField = document.getElementById("hidden");
+const closeDevis = document.getElementById("close-devis");
+const devisPopup = document.querySelector(".devis-container");
+const devisToggle = document.getElementById("devis-toggle");
+const formSecretFieldElement = document.getElementById("hidden");
+const formSecretField = formSecretFieldElement instanceof HTMLInputElement ? formSecretFieldElement : null;
 const formPageTitle = document.querySelector("#product > .hero-banner > .container-narrow > .content > h1");
-if (formSecretField && formPageTitle) formSecretField.value = formPageTitle.textContent;
+if (closeDevis && devisPopup) closeDevis.addEventListener("click", ()=>{
+    devisPopup.classList.add("hidden");
+});
+if (devisToggle && devisPopup) devisToggle.addEventListener("click", ()=>{
+    devisPopup.classList.remove("hidden");
+    setTimeout(()=>{
+        if (formPageTitle !== null && formSecretField !== null) {
+            formSecretField.value = formPageTitle.textContent || "";
+            console.log(formSecretField.value);
+        }
+    }, 500);
+});
 
 },{"typeface-quicksand":"sOuFC","leaflet/dist/leaflet.css":"ccXQa","leaflet":"hEHKY","@parcel/transformer-js/src/esmodule-helpers.js":"iy9MI","swiper/bundle":"lhpcO","swiper/css/bundle":"1LunN"}],"sOuFC":[function() {},{}],"ccXQa":[function() {},{}],"hEHKY":[function(require,module,exports) {
 /* @preserve
