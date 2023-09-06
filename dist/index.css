@@ -2962,6 +2962,16 @@ footer .black-background ul a {
   display: flex;
 }
 
+#boutique .filters-section .filters-categories__container .category-title {
+  margin-top: 2rem;
+}
+
+#boutique .filters-section .filters-categories__container .category-title strong {
+  margin-bottom: .3em;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 #boutique .filters-section .filters-categories__container .filters-categories__container {
   margin-left: .7em;
   font-weight: 400;

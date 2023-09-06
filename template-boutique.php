@@ -16,8 +16,8 @@ function display_categories($parent_id = 0)
     if ($categories) {
         echo $parent_id !== 0 ? '<ul class="filters-categories__container">' : '';
         foreach ($categories as $category) {
-            echo '<li class="filters-categories__item">';
-            echo '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>';
+            echo $parent_id !== 0 ? '<li class="filters-categories__item">' : '<li class="category-title">';
+            echo $parent_id !== 0 ? '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>' : '<strong>' . $category->name . '</strong>';
             display_categories($category->term_id);
             echo '</li>';
         }
@@ -102,12 +102,13 @@ function display_categories($parent_id = 0)
                                             <div class="overlay"><button class="btn">Voir la fiche produit</button></div>
                                         </div>';
                                     }
-                                    echo '<h3>' . $product_title . '</h3>';
+                                    echo '<h3>' . $product_title . ' - ' . get_field('marque') . '</h3>';
 
                                     if (!empty($product_categories)) {
                                         echo '<ul class="product-categories">';
                                         foreach ($product_categories as $category) {
-                                            echo '<li>' . $category->name . '</li>';
+                                            var_dump($category->parent);
+                                            echo $category->parent !== 47 ? '<li>' . $category->name . '</li>' : '';
                                         }
                                         echo '</ul>';
                                     }
