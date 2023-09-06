@@ -18,7 +18,7 @@ if (!empty($suggested_products)) :
                         <a href="<?= get_permalink($product_id); ?>" class="product-link">
                             <?= $product->get_image(); ?>
                             <strong><?= $product->get_name(); ?></strong>
-                            <ul>
+                            <ul class="categories-same-product">
                                 <li><?= $product_categories ?></li>
                             </ul>
                         </a>

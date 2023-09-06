@@ -6,6 +6,7 @@ import { SwiperOptions } from "swiper/types";
 import "swiper/css/bundle";
 
 const swiperContainer = document.querySelector(".swiper");
+const windowWidth = window.innerWidth;
 
 if (swiperContainer) {
   const swiperThumbs = new Swiper(".swiper-thumbs", {
@@ -139,6 +140,9 @@ const formSecretField: HTMLInputElement | null =
 const formPageTitle = document.querySelector(
   "#product > .hero-banner > .container-narrow > .content > h1"
 ) as HTMLElement;
+const lastBreadcrumb = document.getElementById(
+  "last-breadcrumb"
+) as HTMLElement;
 
 if (closeDevis && devisPopup) {
   closeDevis.addEventListener("click", () => {
@@ -156,4 +160,131 @@ if (devisToggle && devisPopup) {
       }
     }, 500);
   });
+}
+
+const boutique = document.getElementById("boutique") as HTMLElement;
+
+if (boutique) {
+  const categoriesFilters = document.querySelectorAll(
+    ".checkbox"
+  ) as NodeListOf<HTMLInputElement>;
+  const products = document.querySelectorAll(
+    ".product-container"
+  ) as NodeListOf<HTMLElement>;
+
+  const brands = document.querySelectorAll(
+    ".marque-list"
+  ) as NodeListOf<HTMLElement>;
+
+  const showFilterBtn = document.getElementById("show-filters") as HTMLElement;
+  const closeFilterBtn = document.getElementById(
+    "close-filters"
+  ) as HTMLElement;
+  const filterContainer = document.querySelector(
+    ".background-black"
+  ) as HTMLElement;
+
+  showFilterBtn.addEventListener("click", () => {
+    filterContainer.classList.remove("hidden");
+  });
+
+  closeFilterBtn.addEventListener("click", () => {
+    filterContainer.classList.add("hidden");
+  });
+
+  const url = new URL(window.location.href);
+  const searchParams = url.searchParams;
+
+  categoriesFilters.forEach((category) => {
+    if (category.value === searchParams.get("category")) {
+      categoriesFilters.forEach((element) => {
+        if (element.value !== category.value) {
+          element.checked = false;
+        }
+      });
+      category.checked = true;
+      lastBreadcrumb.textContent = category.name;
+      products.forEach((product) => {
+        if (
+          category.value === "all" ||
+          product.classList.contains(category.value)
+        ) {
+          product.classList.remove("hidden");
+        } else if (!product.classList.contains(category.value)) {
+          product.classList.add("hidden");
+        }
+      });
+    }
+
+    category.addEventListener("change", () => {
+      if (category.checked) {
+        lastBreadcrumb.textContent = category.name;
+        if (category.value !== "all") {
+          searchParams.set("category", category.value);
+        } else {
+          searchParams.delete("category");
+        }
+        url.search = searchParams.toString();
+        window.history.replaceState({}, "", url.toString());
+      } else {
+        lastBreadcrumb.textContent = "Tous les produits";
+      }
+      categoriesFilters.forEach((element) => {
+        if (element.value !== category.value) {
+          element.checked = false;
+        }
+      });
+      products.forEach((product) => {
+        if (
+          category.value === "all" ||
+          product.classList.contains(category.value)
+        ) {
+          product.classList.remove("hidden");
+        } else if (!product.classList.contains(category.value)) {
+          product.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  if (brands) {
+    if (windowWidth > 1330) {
+      switch (brands.length % 5) {
+        case 3:
+          brands[brands.length - 1].style.gridColumn = "4";
+          brands[brands.length - 2].style.gridColumn = "3";
+          brands[brands.length - 3].style.gridColumn = "2";
+          break;
+        case 2:
+          brands[brands.length - 1].style.gridColumn = "4 / 6";
+          brands[brands.length - 2].style.gridColumn = "1 / 3";
+          break;
+        case 1:
+          brands[brands.length - 1].style.gridColumn = "3";
+          break;
+      }
+    } else if (windowWidth > 768 && windowWidth <= 1330) {
+      switch (brands.length % 4) {
+        case 2:
+          brands[brands.length - 1].style.gridColumn = "3 / 5";
+          brands[brands.length - 2].style.gridColumn = "1 / 3";
+          break;
+        case 1:
+          brands[brands.length - 1].style.gridColumn = "1 / 5";
+          break;
+      }
+    } else if (windowWidth <= 768 && windowWidth > 620) {
+      switch (brands.length % 3) {
+        case 1:
+          brands[brands.length - 1].style.gridColumn = "1 / 4";
+          break;
+      }
+    } else if (windowWidth <= 620 && windowWidth > 500) {
+      switch (brands.length % 2) {
+        case 1:
+          brands[brands.length - 1].style.gridColumn = "1 / 3";
+          break;
+      }
+    }
+  }
 }

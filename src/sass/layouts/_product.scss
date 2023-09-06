@@ -314,6 +314,12 @@
     a {
       text-decoration: none;
     }
+    .categories-same-product {
+      a {
+        color: var.$blue !important;
+        pointer-events: none;
+      }
+    }
 
     .product-item {
       display: flex;

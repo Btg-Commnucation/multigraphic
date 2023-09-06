@@ -583,6 +583,7 @@ var _bundle = require("swiper/bundle");
 var _bundleDefault = parcelHelpers.interopDefault(_bundle);
 var _bundle1 = require("swiper/css/bundle");
 const swiperContainer = document.querySelector(".swiper");
+const windowWidth = window.innerWidth;
 if (swiperContainer) {
     const swiperThumbs = new (0, _bundleDefault.default)(".swiper-thumbs", {
         spaceBetween: 21,
@@ -675,6 +676,7 @@ const devisToggle = document.getElementById("devis-toggle");
 const formSecretFieldElement = document.getElementById("hidden");
 const formSecretField = formSecretFieldElement instanceof HTMLInputElement ? formSecretFieldElement : null;
 const formPageTitle = document.querySelector("#product > .hero-banner > .container-narrow > .content > h1");
+const lastBreadcrumb = document.getElementById("last-breadcrumb");
 if (closeDevis && devisPopup) closeDevis.addEventListener("click", ()=>{
     devisPopup.classList.add("hidden");
 });
@@ -687,6 +689,87 @@ if (devisToggle && devisPopup) devisToggle.addEventListener("click", ()=>{
         }
     }, 500);
 });
+const boutique = document.getElementById("boutique");
+if (boutique) {
+    const categoriesFilters = document.querySelectorAll(".checkbox");
+    const products = document.querySelectorAll(".product-container");
+    const brands = document.querySelectorAll(".marque-list");
+    const showFilterBtn = document.getElementById("show-filters");
+    const closeFilterBtn = document.getElementById("close-filters");
+    const filterContainer = document.querySelector(".background-black");
+    showFilterBtn.addEventListener("click", ()=>{
+        filterContainer.classList.remove("hidden");
+    });
+    closeFilterBtn.addEventListener("click", ()=>{
+        filterContainer.classList.add("hidden");
+    });
+    const url = new URL(window.location.href);
+    const searchParams = url.searchParams;
+    categoriesFilters.forEach((category)=>{
+        if (category.value === searchParams.get("category")) {
+            categoriesFilters.forEach((element)=>{
+                if (element.value !== category.value) element.checked = false;
+            });
+            category.checked = true;
+            lastBreadcrumb.textContent = category.name;
+            products.forEach((product)=>{
+                if (category.value === "all" || product.classList.contains(category.value)) product.classList.remove("hidden");
+                else if (!product.classList.contains(category.value)) product.classList.add("hidden");
+            });
+        }
+        category.addEventListener("change", ()=>{
+            if (category.checked) {
+                lastBreadcrumb.textContent = category.name;
+                if (category.value !== "all") searchParams.set("category", category.value);
+                else searchParams.delete("category");
+                url.search = searchParams.toString();
+                window.history.replaceState({}, "", url.toString());
+            } else lastBreadcrumb.textContent = "Tous les produits";
+            categoriesFilters.forEach((element)=>{
+                if (element.value !== category.value) element.checked = false;
+            });
+            products.forEach((product)=>{
+                if (category.value === "all" || product.classList.contains(category.value)) product.classList.remove("hidden");
+                else if (!product.classList.contains(category.value)) product.classList.add("hidden");
+            });
+        });
+    });
+    if (brands) {
+        if (windowWidth > 1330) switch(brands.length % 5){
+            case 3:
+                brands[brands.length - 1].style.gridColumn = "4";
+                brands[brands.length - 2].style.gridColumn = "3";
+                brands[brands.length - 3].style.gridColumn = "2";
+                break;
+            case 2:
+                brands[brands.length - 1].style.gridColumn = "4 / 6";
+                brands[brands.length - 2].style.gridColumn = "1 / 3";
+                break;
+            case 1:
+                brands[brands.length - 1].style.gridColumn = "3";
+                break;
+        }
+        else if (windowWidth > 768 && windowWidth <= 1330) switch(brands.length % 4){
+            case 2:
+                brands[brands.length - 1].style.gridColumn = "3 / 5";
+                brands[brands.length - 2].style.gridColumn = "1 / 3";
+                break;
+            case 1:
+                brands[brands.length - 1].style.gridColumn = "1 / 5";
+                break;
+        }
+        else if (windowWidth <= 768 && windowWidth > 620) switch(brands.length % 3){
+            case 1:
+                brands[brands.length - 1].style.gridColumn = "1 / 4";
+                break;
+        }
+        else if (windowWidth <= 620 && windowWidth > 500) switch(brands.length % 2){
+            case 1:
+                brands[brands.length - 1].style.gridColumn = "1 / 3";
+                break;
+        }
+    }
+}
 
 },{"typeface-quicksand":"sOuFC","leaflet/dist/leaflet.css":"ccXQa","leaflet":"hEHKY","swiper/bundle":"lhpcO","swiper/css/bundle":"1LunN","@parcel/transformer-js/src/esmodule-helpers.js":"iy9MI"}],"sOuFC":[function() {},{}],"ccXQa":[function() {},{}],"hEHKY":[function(require,module,exports) {
 /* @preserve

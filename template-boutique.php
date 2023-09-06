@@ -14,14 +14,14 @@ function display_categories($parent_id = 0)
     $categories = get_categories($args);
 
     if ($categories) {
-        echo '<ul class="filters-categories__container">';
+        echo $parent_id !== 0 ? '<ul class="filters-categories__container">' : '';
         foreach ($categories as $category) {
             echo '<li class="filters-categories__item">';
-            echo '<label for="' . $category->slug . '"><input type="checkbox" name="' . $category->slug . '" value="' . $category->slug . '"/>' . $category->name . '</label>';
+            echo '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>';
             display_categories($category->term_id);
             echo '</li>';
         }
-        echo '</ul>';
+        echo $parent_id !== 0 ? '</ul>' : '';
     }
 }
 ?>
@@ -54,8 +54,21 @@ function display_categories($parent_id = 0)
     <article>
         <div class="container-narrow">
             <section class="filters-section">
-                <strong>Filtrer les produits</strong>
-                <?php display_categories(); ?>
+                <button class="btn" id="show-filters">
+                    Filtres
+                </button>
+                <div class="background-black hidden">
+                    <div class="filtre-container">
+                        <img src="<?= get_template_directory_uri(); ?>/public/close-blue.svg" alt="Fermer les filtres" id="close-filters">
+                        <strong>Filtrer les produits</strong>
+                        <ul class="filters-categories__container">
+                            <li class="filters-categories__item">
+                                <label for="all"><input class="checkbox" type="checkbox" name="Tous les produits" id="all" value="all" checked>Tous les produits</label>
+                            </li>
+                            <?php display_categories(); ?>
+                        </ul>
+                    </div>
+                </div>
             </section>
             <section class="products">
                 <?php $args = array(
@@ -109,5 +122,21 @@ function display_categories($parent_id = 0)
             </section>
         </div>
     </article>
+    <section class="marques">
+        <div class="container-narrow">
+            <h2>Nos marques</h2>
+            <div class="text"><?php the_field('texte_court_marque'); ?></div>
+            <?php if (have_rows('logo_marque')) : ?>
+                <ul class="marques-container">
+                    <?php while (have_rows('logo_marque')) : the_row();
+                        $img = get_sub_field('logo');
+
+                        echo '<li class="marque-list"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
+                    endwhile;
+                    ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+    </section>
 </main>
 <?php get_footer(); ?>
