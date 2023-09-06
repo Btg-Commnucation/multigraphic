@@ -32,7 +32,7 @@ h2 {
 }
 
 h3 {
-  @include var.fontSize(2.4rem);
+  @include var.fontSize(24);
   font-weight: 600;
 }
 
