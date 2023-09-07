@@ -63,7 +63,7 @@ function display_categories($parent_id = 0)
                         <strong>Filtrer les produits</strong>
                         <ul class="filters-categories__container">
                             <li class="filters-categories__item">
-                                <label for="all"><input class="checkbox" type="checkbox" name="Tous les produits" id="all" value="all" checked>Tous les produits</label>
+                                <label for="all"><input class="checkbox" type="checkbox" name="Tous les produits" id="all" value="all">Tous les produits</label>
                             </li>
                             <?php display_categories(); ?>
                         </ul>

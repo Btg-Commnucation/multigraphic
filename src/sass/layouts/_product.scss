@@ -159,51 +159,6 @@
     }
   }
 
-  .contenu-flexible {
-    .video {
-      display: flex;
-      width: 100%;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      min-height: 522px;
-      margin-top: 8.7rem;
-    }
-
-    .blue-background {
-      background: var.$blue;
-      position: absolute;
-      top: -50px;
-      right: 0;
-      width: 67%;
-      height: 100%;
-      z-index: -1;
-
-      @include var.breakpoint(tablet) {
-        width: 85%;
-      }
-
-      @include var.breakpoint(932px) {
-        width: 95%;
-      }
-    }
-
-    iframe {
-      width: 42%;
-      min-height: 505px;
-
-      @include var.breakpoint(tablet) {
-        width: 85%;
-        height: 605px;
-      }
-
-      @include var.breakpoint(932px) {
-        width: 95%;
-        height: auto;
-      }
-    }
-  }
-
   .specs {
     margin-block: 9.2rem 16.8rem;
 
@@ -613,5 +568,50 @@
   @include var.breakpoint(631px) {
     width: 300px;
     height: 59px;
+  }
+}
+
+.contenu-flexible {
+  .video {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 522px;
+    margin-top: 8.7rem;
+  }
+
+  .blue-background {
+    background: var.$blue;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 67%;
+    height: 100%;
+    z-index: -1;
+
+    @include var.breakpoint(tablet) {
+      width: 85%;
+    }
+
+    @include var.breakpoint(932px) {
+      width: 95%;
+    }
+  }
+
+  iframe {
+    width: 42%;
+    min-height: 505px;
+
+    @include var.breakpoint(tablet) {
+      width: 85%;
+      height: 605px;
+    }
+
+    @include var.breakpoint(932px) {
+      width: 95%;
+      height: auto;
+    }
   }
 }

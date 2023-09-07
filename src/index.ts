@@ -7,6 +7,9 @@ import "swiper/css/bundle";
 
 const windowWidth = window.innerWidth;
 const productPage = document.getElementById("product") as HTMLElement;
+const brands = document.querySelectorAll(
+  ".marque-list"
+) as NodeListOf<HTMLElement>;
 
 if (productPage) {
   const swiperThumbs = new Swiper(".swiper-thumbs", {
@@ -172,10 +175,6 @@ if (boutique) {
     ".product-container"
   ) as NodeListOf<HTMLElement>;
 
-  const brands = document.querySelectorAll(
-    ".marque-list"
-  ) as NodeListOf<HTMLElement>;
-
   const showFilterBtn = document.getElementById("show-filters") as HTMLElement;
   const closeFilterBtn = document.getElementById(
     "close-filters"
@@ -196,6 +195,10 @@ if (boutique) {
   const searchParams = url.searchParams;
 
   categoriesFilters.forEach((category) => {
+    if (!searchParams.get("category")) {
+      categoriesFilters[0].checked = true;
+      lastBreadcrumb.textContent = categoriesFilters[0].name;
+    }
     if (category.value === searchParams.get("category")) {
       categoriesFilters.forEach((element) => {
         if (element.value !== category.value) {
@@ -246,45 +249,45 @@ if (boutique) {
       });
     });
   });
+}
 
-  if (brands) {
-    if (windowWidth > 1330) {
-      switch (brands.length % 5) {
-        case 3:
-          brands[brands.length - 1].style.gridColumn = "4";
-          brands[brands.length - 2].style.gridColumn = "3";
-          brands[brands.length - 3].style.gridColumn = "2";
-          break;
-        case 2:
-          brands[brands.length - 1].style.gridColumn = "4 / 6";
-          brands[brands.length - 2].style.gridColumn = "1 / 3";
-          break;
-        case 1:
-          brands[brands.length - 1].style.gridColumn = "3";
-          break;
-      }
-    } else if (windowWidth > 768 && windowWidth <= 1330) {
-      switch (brands.length % 4) {
-        case 2:
-          brands[brands.length - 1].style.gridColumn = "3 / 5";
-          brands[brands.length - 2].style.gridColumn = "1 / 3";
-          break;
-        case 1:
-          brands[brands.length - 1].style.gridColumn = "1 / 5";
-          break;
-      }
-    } else if (windowWidth <= 768 && windowWidth > 620) {
-      switch (brands.length % 3) {
-        case 1:
-          brands[brands.length - 1].style.gridColumn = "1 / 4";
-          break;
-      }
-    } else if (windowWidth <= 620 && windowWidth > 500) {
-      switch (brands.length % 2) {
-        case 1:
-          brands[brands.length - 1].style.gridColumn = "1 / 3";
-          break;
-      }
+if (brands) {
+  if (windowWidth > 1330) {
+    switch (brands.length % 5) {
+      case 3:
+        brands[brands.length - 1].style.gridColumn = "4";
+        brands[brands.length - 2].style.gridColumn = "3";
+        brands[brands.length - 3].style.gridColumn = "2";
+        break;
+      case 2:
+        brands[brands.length - 1].style.gridColumn = "4 / 6";
+        brands[brands.length - 2].style.gridColumn = "1 / 3";
+        break;
+      case 1:
+        brands[brands.length - 1].style.gridColumn = "3";
+        break;
+    }
+  } else if (windowWidth > 768 && windowWidth <= 1330) {
+    switch (brands.length % 4) {
+      case 2:
+        brands[brands.length - 1].style.gridColumn = "3 / 5";
+        brands[brands.length - 2].style.gridColumn = "1 / 3";
+        break;
+      case 1:
+        brands[brands.length - 1].style.gridColumn = "1 / 5";
+        break;
+    }
+  } else if (windowWidth <= 768 && windowWidth > 620) {
+    switch (brands.length % 3) {
+      case 1:
+        brands[brands.length - 1].style.gridColumn = "1 / 4";
+        break;
+    }
+  } else if (windowWidth <= 620 && windowWidth > 500) {
+    switch (brands.length % 2) {
+      case 1:
+        brands[brands.length - 1].style.gridColumn = "1 / 3";
+        break;
     }
   }
 }

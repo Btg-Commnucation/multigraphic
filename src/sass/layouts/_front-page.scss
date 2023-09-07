@@ -1,6 +1,52 @@
 @use "../abstracts" as var;
 
 #front-page {
+  .sub-title {
+    margin-bottom: 4.1rem;
+    font-size: 1.9rem;
+    max-width: 85%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include var.breakpoint(tablet) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+
+    @include var.breakpoint(mobile) {
+      max-width: 100%;
+    }
+
+    .text {
+      max-width: 60%;
+
+      @include var.breakpoint(tablet) {
+        max-width: 100%;
+      }
+    }
+
+    .btn {
+      color: white;
+      background: black;
+      border: 1px solid black;
+      transition: 0.3s ease-in-out;
+      display: flow-root;
+      width: fit-content;
+
+      &:hover {
+        color: black;
+        background: transparent;
+      }
+
+      @include var.breakpoint(tablet) {
+        margin-top: 2.4rem;
+      }
+    }
+  }
+
   article {
     margin-block: 4rem 3.2rem;
     font-size: 1.9rem;
@@ -76,6 +122,20 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
+
+      @include var.breakpoint(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 13.9rem;
+        row-gap: 4.4rem;
+      }
+
+      @include var.breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4.4rem;
+      }
     }
 
     .image-container {
@@ -143,6 +203,184 @@
         color: #0661a7;
         margin-right: 0.3em;
         font-size: 1.9rem;
+      }
+    }
+  }
+
+  .savoir-faire {
+    margin-block: 7.1rem 2.7rem;
+    h2 {
+      margin-bottom: 1.7rem;
+    }
+
+    .savoir {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      align-items: start;
+      gap: 2rem;
+
+      @include var.breakpoint(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include var.breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      p {
+        font-size: 1.9rem;
+        margin-top: 1.7rem;
+      }
+    }
+
+    li {
+      .img-top {
+        width: 100%;
+      }
+
+      @include var.breakpoint(tablet) {
+        &:last-child {
+          grid-column: 1 / 3;
+        }
+      }
+    }
+
+    .text-content {
+      background: var.$blue;
+      color: white;
+      padding-inline: 5rem;
+      padding-block: 2.9rem 3.3rem;
+      max-width: 85%;
+      margin-inline: auto;
+      position: relative;
+      top: -50px;
+
+      @include var.breakpoint(mobile) {
+        max-width: 95%;
+      }
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: white;
+    }
+  }
+
+  .engagement {
+    padding-block: 3rem 5.6rem;
+    background-size: cover !important;
+
+    .container-narrow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .content {
+      max-width: 961px;
+
+      @include var.breakpoint(tablet) {
+        max-width: 90%;
+      }
+    }
+
+    h2 {
+      margin-bottom: 3rem;
+    }
+
+    p {
+      font-size: 1.9rem;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
+      }
+    }
+
+    .btn {
+      color: var.$blue;
+      background: white;
+      border: 1px solid white;
+      transition: 0.3s ease-in-out;
+      margin-top: 3rem;
+
+      &:hover {
+        background: transparent;
+        color: white;
+      }
+    }
+  }
+
+  .export {
+    background: var.$lightGray;
+    padding-block: 3.8rem 4.1rem;
+    margin-bottom: 6.2rem;
+
+    .container-narrow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1.8rem;
+    }
+
+    .text {
+      margin-bottom: 2.5rem;
+      max-width: 823px;
+      font-size: 2.6rem;
+
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
+      }
+
+      @include var.breakpoint(900px) {
+        max-width: 100%;
+      }
+    }
+
+    .link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .btn {
+      background: black;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s ease-in-out;
+      display: flow-root;
+      font-size: 1.9rem;
+
+      &:hover {
+        background: transparent;
+        color: black;
+      }
+
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
       }
     }
   }

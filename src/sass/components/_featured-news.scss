@@ -1,0 +1,63 @@
+@use "../abstracts" as var;
+
+.featured-news {
+  background: var.$lightGray;
+  padding-block: 5.4rem 8.9rem;
+
+  h2 {
+    margin-bottom: 1.8rem;
+
+    @include var.breakpoint(mobile) {
+      text-align: center;
+    }
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    margin-top: 4rem;
+    margin-left: 0;
+
+    li {
+      &.hidden {
+        display: none;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @include var.breakpoint(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      row-gap: 5.1rem;
+    }
+
+    @include var.breakpoint(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .date {
+    color: var.$gray;
+    font-size: 1.9rem;
+  }
+
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    div {
+      font-size: 1.9rem;
+    }
+
+    a {
+      color: var.$blue;
+      font-size: 1.9rem;
+      margin-top: 2rem;
+    }
+  }
+}

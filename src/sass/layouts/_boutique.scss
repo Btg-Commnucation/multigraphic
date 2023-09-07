@@ -308,60 +308,60 @@
       }
     }
   }
+}
 
-  .marques {
-    margin-bottom: 6.5rem;
-    .container-narrow {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-    }
+.marques {
+  margin-bottom: 6.5rem;
+  .container-narrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
 
-    h2 {
-      margin-bottom: 1.2rem;
+  h2 {
+    margin-bottom: 1.2rem;
 
-      @include var.breakpoint(mobile) {
-        text-align: center;
-        margin-inline: auto;
-      }
-    }
-
-    .text {
-      margin-bottom: 8rem;
-      margin-left: 10rem;
-      font-size: 1.9rem;
-      font-weight: 400;
-
-      @include var.breakpoint(mobile) {
-        margin-left: 0;
-      }
-    }
-
-    .marques-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      place-items: center;
-      column-gap: 5.4rem;
-      row-gap: 4.3rem;
-      list-style: none;
+    @include var.breakpoint(mobile) {
+      text-align: center;
       margin-inline: auto;
+    }
+  }
 
-      @include var.breakpoint(tablet) {
-        grid-template-columns: repeat(4, 1fr);
-      }
+  .text {
+    margin-bottom: 8rem;
+    margin-left: 10rem;
+    font-size: 1.9rem;
+    font-weight: 400;
 
-      @include var.breakpoint(mobile) {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    @include var.breakpoint(mobile) {
+      margin-left: 0;
+    }
+  }
 
-      @include var.breakpoint(620px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
+  .marques-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+    column-gap: 5.4rem;
+    row-gap: 4.3rem;
+    list-style: none;
+    margin-inline: auto;
 
-      @include var.breakpoint(500px) {
-        grid-template-columns: 1fr;
-      }
+    @include var.breakpoint(tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include var.breakpoint(mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include var.breakpoint(620px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include var.breakpoint(500px) {
+      grid-template-columns: 1fr;
     }
   }
 }

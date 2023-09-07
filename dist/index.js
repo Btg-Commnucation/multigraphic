@@ -584,6 +584,7 @@ var _bundleDefault = parcelHelpers.interopDefault(_bundle);
 var _bundle1 = require("swiper/css/bundle");
 const windowWidth = window.innerWidth;
 const productPage = document.getElementById("product");
+const brands = document.querySelectorAll(".marque-list");
 if (productPage) {
     const swiperThumbs = new (0, _bundleDefault.default)(".swiper-thumbs", {
         spaceBetween: 21,
@@ -693,7 +694,6 @@ const boutique = document.getElementById("boutique");
 if (boutique) {
     const categoriesFilters = document.querySelectorAll(".checkbox");
     const products = document.querySelectorAll(".product-container");
-    const brands = document.querySelectorAll(".marque-list");
     const showFilterBtn = document.getElementById("show-filters");
     const closeFilterBtn = document.getElementById("close-filters");
     const filterContainer = document.querySelector(".background-black");
@@ -706,6 +706,10 @@ if (boutique) {
     const url = new URL(window.location.href);
     const searchParams = url.searchParams;
     categoriesFilters.forEach((category)=>{
+        if (!searchParams.get("category")) {
+            categoriesFilters[0].checked = true;
+            lastBreadcrumb.textContent = categoriesFilters[0].name;
+        }
         if (category.value === searchParams.get("category")) {
             categoriesFilters.forEach((element)=>{
                 if (element.value !== category.value) element.checked = false;
@@ -734,40 +738,40 @@ if (boutique) {
             });
         });
     });
-    if (brands) {
-        if (windowWidth > 1330) switch(brands.length % 5){
-            case 3:
-                brands[brands.length - 1].style.gridColumn = "4";
-                brands[brands.length - 2].style.gridColumn = "3";
-                brands[brands.length - 3].style.gridColumn = "2";
-                break;
-            case 2:
-                brands[brands.length - 1].style.gridColumn = "4 / 6";
-                brands[brands.length - 2].style.gridColumn = "1 / 3";
-                break;
-            case 1:
-                brands[brands.length - 1].style.gridColumn = "3";
-                break;
-        }
-        else if (windowWidth > 768 && windowWidth <= 1330) switch(brands.length % 4){
-            case 2:
-                brands[brands.length - 1].style.gridColumn = "3 / 5";
-                brands[brands.length - 2].style.gridColumn = "1 / 3";
-                break;
-            case 1:
-                brands[brands.length - 1].style.gridColumn = "1 / 5";
-                break;
-        }
-        else if (windowWidth <= 768 && windowWidth > 620) switch(brands.length % 3){
-            case 1:
-                brands[brands.length - 1].style.gridColumn = "1 / 4";
-                break;
-        }
-        else if (windowWidth <= 620 && windowWidth > 500) switch(brands.length % 2){
-            case 1:
-                brands[brands.length - 1].style.gridColumn = "1 / 3";
-                break;
-        }
+}
+if (brands) {
+    if (windowWidth > 1330) switch(brands.length % 5){
+        case 3:
+            brands[brands.length - 1].style.gridColumn = "4";
+            brands[brands.length - 2].style.gridColumn = "3";
+            brands[brands.length - 3].style.gridColumn = "2";
+            break;
+        case 2:
+            brands[brands.length - 1].style.gridColumn = "4 / 6";
+            brands[brands.length - 2].style.gridColumn = "1 / 3";
+            break;
+        case 1:
+            brands[brands.length - 1].style.gridColumn = "3";
+            break;
+    }
+    else if (windowWidth > 768 && windowWidth <= 1330) switch(brands.length % 4){
+        case 2:
+            brands[brands.length - 1].style.gridColumn = "3 / 5";
+            brands[brands.length - 2].style.gridColumn = "1 / 3";
+            break;
+        case 1:
+            brands[brands.length - 1].style.gridColumn = "1 / 5";
+            break;
+    }
+    else if (windowWidth <= 768 && windowWidth > 620) switch(brands.length % 3){
+        case 1:
+            brands[brands.length - 1].style.gridColumn = "1 / 4";
+            break;
+    }
+    else if (windowWidth <= 620 && windowWidth > 500) switch(brands.length % 2){
+        case 1:
+            brands[brands.length - 1].style.gridColumn = "1 / 3";
+            break;
     }
 }
 const heroBanner = document.querySelector("#front-page > .hero-banner");
