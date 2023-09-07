@@ -5,10 +5,10 @@ import Swiper from "swiper/bundle";
 import { SwiperOptions } from "swiper/types";
 import "swiper/css/bundle";
 
-const swiperContainer = document.querySelector(".swiper");
 const windowWidth = window.innerWidth;
+const productPage = document.getElementById("product") as HTMLElement;
 
-if (swiperContainer) {
+if (productPage) {
   const swiperThumbs = new Swiper(".swiper-thumbs", {
     spaceBetween: 21,
     slidesPerView: 4,
@@ -287,4 +287,58 @@ if (boutique) {
       }
     }
   }
+}
+
+const heroBanner = document.querySelector(
+  "#front-page > .hero-banner"
+) as HTMLElement;
+
+const sliderFront = document.querySelector(
+  "#front-page > .slider-front"
+) as HTMLElement;
+
+if (heroBanner) {
+  const swiper = new Swiper(".mySwiper", {
+    direction: "horizontal",
+    loop: true,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return (
+          '<span class="' +
+          className +
+          '" aria-label=Slide "' +
+          (index + 1) +
+          '"></span>'
+        );
+      },
+    },
+  });
+}
+
+if (sliderFront) {
+  const swiper = new Swiper(".cate-swiper", {
+    direction: "horizontal",
+    loop: true,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return (
+          '<span class="' +
+          className +
+          '" aria-label=Slide "' +
+          (index + 1) +
+          '"></span>'
+        );
+      },
+    },
+  });
 }

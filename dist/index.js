@@ -582,9 +582,9 @@ var _leafletDefault = parcelHelpers.interopDefault(_leaflet);
 var _bundle = require("swiper/bundle");
 var _bundleDefault = parcelHelpers.interopDefault(_bundle);
 var _bundle1 = require("swiper/css/bundle");
-const swiperContainer = document.querySelector(".swiper");
 const windowWidth = window.innerWidth;
-if (swiperContainer) {
+const productPage = document.getElementById("product");
+if (productPage) {
     const swiperThumbs = new (0, _bundleDefault.default)(".swiper-thumbs", {
         spaceBetween: 21,
         slidesPerView: 4,
@@ -769,6 +769,42 @@ if (boutique) {
                 break;
         }
     }
+}
+const heroBanner = document.querySelector("#front-page > .hero-banner");
+const sliderFront = document.querySelector("#front-page > .slider-front");
+if (heroBanner) {
+    const swiper = new (0, _bundleDefault.default)(".mySwiper", {
+        direction: "horizontal",
+        loop: true,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<span class="' + className + '" aria-label=Slide "' + (index + 1) + '"></span>';
+            }
+        }
+    });
+}
+if (sliderFront) {
+    const swiper = new (0, _bundleDefault.default)(".cate-swiper", {
+        direction: "horizontal",
+        loop: true,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<span class="' + className + '" aria-label=Slide "' + (index + 1) + '"></span>';
+            }
+        }
+    });
 }
 
 },{"typeface-quicksand":"sOuFC","leaflet/dist/leaflet.css":"ccXQa","leaflet":"hEHKY","swiper/bundle":"lhpcO","swiper/css/bundle":"1LunN","@parcel/transformer-js/src/esmodule-helpers.js":"iy9MI"}],"sOuFC":[function() {},{}],"ccXQa":[function() {},{}],"hEHKY":[function(require,module,exports) {

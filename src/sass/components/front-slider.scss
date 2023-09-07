@@ -1,0 +1,161 @@
+@use "../abstracts" as var;
+
+#front-page {
+  .slider-front {
+    position: relative;
+
+    .blue-background {
+      height: 100%;
+      width: 58%;
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      top: 0;
+      background: var.$blue;
+
+      @include var.breakpoint(tablet) {
+        width: 66%;
+      }
+
+      @include var.breakpoint(mobile) {
+        width: 100%;
+        top: unset;
+        bottom: 0;
+      }
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-wrapper {
+      align-items: center;
+
+      @include var.breakpoint(tablet) {
+        padding-top: 6.8rem;
+      }
+    }
+
+    .swiper-slide {
+      display: grid;
+      grid-template-columns: 0.5fr 0.5fr;
+      justify-items: start;
+      align-items: center;
+      gap: 7.9rem;
+
+      @include var.breakpoint(884px) {
+        gap: 3.9rem;
+      }
+
+      @include var.breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    img {
+      justify-self: end;
+      width: 100%;
+      max-width: 572px;
+      align-self: center;
+
+      @include var.breakpoint(tablet) {
+        max-width: 309px;
+      }
+
+      @include var.breakpoint(mobile) {
+        max-height: 226.76px;
+      }
+    }
+
+    .content {
+      color: white;
+      font-size: 1.9rem;
+      max-width: 462px;
+
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
+      }
+
+      @include var.breakpoint(mobile) {
+        padding-inline: 1rem;
+      }
+
+      p {
+        margin-top: 2rem;
+
+        @include var.breakpoint(mobile) {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    a {
+      display: flow-root;
+      width: fit-content;
+      background: white;
+      font-size: 1.9rem;
+      border-color: white;
+      transition: 0.3s ease-in-out;
+      margin-top: 4rem;
+
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
+      }
+
+      @include var.breakpoint(mobile) {
+        margin-top: 2rem;
+      }
+
+      &:hover {
+        color: white;
+        background: transparent;
+      }
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      top: 14%;
+      left: 3.5%;
+      bottom: unset;
+
+      @include var.breakpoint(tablet) {
+        left: 4.5%;
+      }
+
+      @include var.breakpoint(mobile) {
+        left: -27%;
+        right: unset;
+        top: 54%;
+      }
+
+      @include var.breakpoint(713px) {
+        top: 55%;
+      }
+
+      @include var.breakpoint(466px) {
+        top: 53%;
+        left: -43%;
+      }
+
+      @include var.breakpoint(390px) {
+        top: 47%;
+        left: -41%;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 1;
+      width: 22px;
+      height: 22px;
+
+      &-active {
+        opacity: 0.3;
+      }
+    }
+  }
+}

@@ -107,7 +107,6 @@ function display_categories($parent_id = 0)
                                     if (!empty($product_categories)) {
                                         echo '<ul class="product-categories">';
                                         foreach ($product_categories as $category) {
-                                            var_dump($category->parent);
                                             echo $category->parent !== 47 ? '<li>' . $category->name . '</li>' : '';
                                         }
                                         echo '</ul>';
