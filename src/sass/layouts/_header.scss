@@ -4,6 +4,16 @@ header {
   width: 100%;
   border-bottom: 6px solid black;
 
+  &.fixed {
+    position: fixed;
+    background: white;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+  }
+
   .current_page_item {
     position: relative;
 

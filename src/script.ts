@@ -5,6 +5,19 @@ import Swiper from "swiper/bundle";
 import { SwiperOptions } from "swiper/types";
 import "swiper/css/bundle";
 
+const header = document.querySelector("header") as HTMLElement;
+
+if (header) {
+  // Si on scroll un peu dans la page, le header devient en position fixed
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
+    }
+  });
+}
+
 const windowWidth = window.innerWidth;
 const productPage = document.getElementById("product") as HTMLElement;
 const brands = document.querySelectorAll(

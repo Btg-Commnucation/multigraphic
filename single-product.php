@@ -1,4 +1,5 @@
 <?php get_header();
+$shop_link = get_field('lien_boutique', 'option');
 ?>
 
 <main id="product">
@@ -7,12 +8,12 @@
             <ul>
                 <li><a href="<?= get_home_url('/'); ?>">Accueil</a></li>
                 <li class="divider">/</li>
-                <li><a href="<?= get_home_url('nos-produits') ?>">Boutique</a></li>
+                <li><a href="<?= esc_url($shop_link['url']); ?>">Boutique</a></li>
                 <li class="divider">/</li>
                 <?php $product_categories = get_the_terms($post->ID, 'product_cat');
                 if ($product_categories) :
                     foreach ($product_categories as $category) {
-                        echo '<li><a href="' . get_home_url('/categories-produit/' . $category->slug . '') . '">' . $category->name . '</a></li><li class="divider">/</li>';
+                        echo '<li><a href="' . esc_url($shop_link['url'] . '?category=' . $category->slug . '') . '">' . $category->name . '</a></li><li class="divider">/</li>';
                     }
                 endif;
                 ?>
