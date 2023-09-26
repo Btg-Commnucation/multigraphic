@@ -3,6 +3,11 @@
 #front-page {
   .slider-front {
     position: relative;
+    padding-top: 5.4rem;
+
+    @include var.breakpoint(tablet) {
+      padding-bottom: 3rem;
+    }
 
     .blue-background {
       height: 100%;
@@ -101,6 +106,7 @@
       border-color: white;
       transition: 0.3s ease-in-out;
       margin-top: 4rem;
+      color: var.$blue;
 
       @include var.breakpoint(tablet) {
         font-size: 1.6rem;
@@ -118,7 +124,7 @@
 
     .swiper-pagination {
       position: absolute;
-      top: 14%;
+      top: 11%;
       left: 3.5%;
       bottom: unset;
 
@@ -129,20 +135,19 @@
       @include var.breakpoint(mobile) {
         left: -27%;
         right: unset;
-        top: 54%;
+        top: 51%;
       }
 
       @include var.breakpoint(713px) {
-        top: 55%;
+        top: 53% !important;
       }
 
       @include var.breakpoint(466px) {
-        top: 53%;
         left: -43%;
       }
 
       @include var.breakpoint(390px) {
-        top: 47%;
+        top: 47% !important;
         left: -41%;
       }
     }

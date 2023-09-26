@@ -3,6 +3,10 @@
 @use "./layouts";
 @use "./components";
 
+body {
+  line-height: 1.3;
+}
+
 .container-narrow {
   max-width: 71%;
   margin-inline: auto;

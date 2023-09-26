@@ -44,10 +44,16 @@
       font-size: 1.6rem;
     }
 
+    @include var.breakpoint(926px) {
+      max-width: 65%;
+      margin-right: -17em;
+    }
+
     @include var.breakpoint(mobile) {
       max-width: 95%;
       margin-inline: auto;
       margin-top: -5em;
+      padding: 3rem;
     }
 
     h2 {
@@ -99,6 +105,10 @@
 
     img {
       max-width: 331px;
+
+      @include var.breakpoint(tablet) {
+        max-width: 206px;
+      }
     }
 
     .container-narrow {
@@ -136,7 +146,7 @@
       margin-left: -5%;
 
       @include var.breakpoint(1054px) {
-        width: 25%;
+        width: 39%;
       }
 
       @include var.breakpoint(mobile) {
@@ -154,13 +164,14 @@
     justify-content: center;
     align-items: center;
     width: 56%;
+    font-size: 1.9rem;
 
     @include var.breakpoint(tablet) {
       width: 61%;
     }
 
     @include var.breakpoint(1054px) {
-      width: 75%;
+      width: 65%;
     }
 
     @include var.breakpoint(mobile) {
@@ -172,6 +183,10 @@
     div {
       margin-inline: auto;
       width: 57%;
+
+      @include var.breakpoint(tablet) {
+        width: 85%;
+      }
 
       @include var.breakpoint(mobile) {
         width: 95%;
@@ -219,7 +234,8 @@
 
     @include var.breakpoint(tablet) {
       top: 17rem;
-      margin-left: -28%;
+      margin-left: -41%;
+      padding-block: 5.1rem 3rem;
     }
 
     @include var.breakpoint(mobile) {
@@ -241,10 +257,13 @@
       font-size: calc(29px + (39 - 29) * ((100vw - 320px) / (1920 - 320)));
       font-weight: 700;
       margin-bottom: 4.2rem;
+      line-height: 1.3;
     }
 
     strong {
       margin-bottom: 4.8rem;
+      font-size: 2.4rem;
+      display: flow-root;
     }
 
     a {

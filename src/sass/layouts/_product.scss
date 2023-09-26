@@ -20,6 +20,7 @@
       font-size: 1.7rem;
       color: var.$blue;
       list-style: none;
+      flex-wrap: wrap;
 
       @include var.breakpoint(400px) {
         flex-direction: column;
@@ -53,8 +54,9 @@
     grid-template-columns: 0.8fr 1fr;
     gap: 8.2rem;
 
-    @include var.breakpoint(977px) {
-      grid-template-columns: 0.4fr 1fr;
+    @include var.breakpoint(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
     }
 
     @include var.breakpoint(mobile) {
@@ -95,9 +97,17 @@
       font-size: 2rem;
       color: black;
 
+      @include var.breakpoint(tablet) {
+        font-size: 1.6rem;
+      }
+
       strong {
         margin-bottom: 3.7rem;
         display: flow-root;
+
+        @include var.breakpoint(tablet) {
+          font-size: 1.7rem;
+        }
       }
     }
   }
@@ -180,6 +190,14 @@
         left: 0;
         margin-inline: auto;
       }
+
+      @include var.breakpoint(tablet) {
+        margin-bottom: 9.1rem;
+
+        &::after {
+          bottom: -1.3em;
+        }
+      }
     }
 
     .specs-content {
@@ -211,6 +229,10 @@
         padding: 2rem 3.6rem;
         box-shadow: 0px 3px 6px #00000029;
         background: white;
+
+        @include var.breakpoint(tablet) {
+          grid-template-columns: 0.8fr 1fr;
+        }
 
         @include var.breakpoint(500px) {
           font-size: 1.6rem;
@@ -244,6 +266,14 @@
         right: 0;
         left: 0;
         margin-inline: auto;
+      }
+
+      @include var.breakpoint(tablet) {
+        margin-bottom: 9.1rem;
+
+        &::after {
+          bottom: -1.3em;
+        }
       }
     }
   }

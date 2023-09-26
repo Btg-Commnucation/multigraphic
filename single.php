@@ -2,7 +2,7 @@
 <main id="single">
     <article>
         <div class="container-narrow">
-            <a class="btn" href="<?= home_url("/actualites"); ?>">Retour aux articles</a>
+            <a class="btn" href="<?= home_url("/les-actualites-multigraphic"); ?>">Retour aux articles</a>
             <h1><?php the_title(); ?></h1>
             <p class="date"><?php the_time("d/m/Y"); ?></p>
             <div class="content">

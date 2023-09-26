@@ -187,6 +187,9 @@ if (boutique) {
   const products = document.querySelectorAll(
     ".product-container"
   ) as NodeListOf<HTMLElement>;
+  const marquesFilters = document.querySelectorAll(
+    ".marques-container > .marque-list > img"
+  );
 
   const showFilterBtn = document.getElementById("show-filters") as HTMLElement;
   const closeFilterBtn = document.getElementById(
@@ -206,6 +209,30 @@ if (boutique) {
 
   const url = new URL(window.location.href);
   const searchParams = url.searchParams;
+
+  marquesFilters.forEach((marque) => {
+    marque.addEventListener("click", () => {
+      lastBreadcrumb.textContent = marque.id;
+      searchParams.set("category", marque.classList.value);
+      url.search = searchParams.toString();
+      window.history.replaceState({}, "", url.toString());
+      categoriesFilters.forEach((element) => {
+        if (element.value === marque.classList.value) {
+          element.checked = true;
+        } else {
+          element.checked = false;
+        }
+      });
+
+      products.forEach((product) => {
+        if (product.classList.contains(marque.classList.value)) {
+          product.classList.remove("hidden");
+        } else if (!product.classList.contains(marque.classList.value)) {
+          product.classList.add("hidden");
+        }
+      });
+    });
+  });
 
   categoriesFilters.forEach((category) => {
     if (!searchParams.get("category")) {

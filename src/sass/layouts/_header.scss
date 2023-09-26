@@ -196,7 +196,7 @@ header {
   cursor: pointer;
   gap: 1.2rem;
   pointer-events: all;
-  z-index: 110;
+  z-index: 1100;
 
   img {
     width: 46px;
@@ -231,7 +231,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
 
   &.hidden {
     display: none;

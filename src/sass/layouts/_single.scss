@@ -26,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    font-size: 1.9rem;
 
     @include var.breakpoint(tablet) {
       width: 100%;
@@ -49,6 +50,14 @@
   ul {
     margin-block: 0;
     margin-left: 5em;
+
+    @include var.breakpoint(tablet) {
+      margin-left: 3em;
+    }
+
+    @include var.breakpoint(mobile) {
+      margin-left: 1em;
+    }
   }
 
   figure.wp-block-embed {
@@ -99,6 +108,12 @@
 
       div {
         font-size: 1.9rem;
+      }
+
+      h4 {
+        @include var.breakpoint(mobile) {
+          margin-top: 1.5rem;
+        }
       }
 
       a {

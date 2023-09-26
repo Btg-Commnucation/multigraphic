@@ -23,6 +23,7 @@
       color: var.$blue;
       max-width: 75%;
       text-transform: uppercase;
+      line-height: 1.3;
 
       @include var.breakpoint(mobile) {
         width: 100%;
@@ -68,17 +69,22 @@
       div {
         width: 42%;
         margin-left: 3em;
+        line-height: 1.3;
 
         @include var.breakpoint(mobile) {
           width: 100%;
           margin-left: 1em;
+
+          h2 {
+            margin-bottom: 1em;
+          }
         }
       }
     }
 
     img {
       position: absolute;
-      right: 17em;
+      right: 14em;
       top: -26em;
 
       @include var.breakpoint(1849px) {
@@ -94,7 +100,7 @@
       @include var.breakpoint(tablet) {
         max-width: 45%;
         right: 1em;
-        top: -25em;
+        top: -18em;
       }
 
       @include var.breakpoint(1314px) {
@@ -102,11 +108,11 @@
       }
 
       @include var.breakpoint(1189px) {
-        top: -20em;
+        top: -16em;
       }
 
       @include var.breakpoint(1050px) {
-        top: -16em;
+        top: -11em;
       }
 
       @include var.breakpoint(mobile) {
@@ -262,15 +268,16 @@
 
       @include var.breakpoint(662px) {
         max-width: 93%;
-        padding: 4.8rem 2.2rem 8.8rem 2.2rem;
+        padding: 4.8rem 2.2rem 4.8rem 2.2rem;
+        bottom: -10em;
       }
 
       @include var.breakpoint(460px) {
-        bottom: -18em;
+        bottom: -15em;
       }
 
       @include var.breakpoint(333px) {
-        bottom: -21em;
+        bottom: -17em;
       }
     }
   }
