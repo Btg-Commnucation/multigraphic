@@ -178,115 +178,54 @@ if (devisToggle && devisPopup) {
   });
 }
 
-const boutique = document.getElementById("boutique") as HTMLElement;
+const boutiquePage = document.querySelector(
+  "#boutique.category-product__page"
+) as HTMLElement;
 
-if (boutique) {
-  const categoriesFilters = document.querySelectorAll(
+if (boutiquePage) {
+  const checkboxes = document.querySelectorAll(
     ".checkbox"
   ) as NodeListOf<HTMLInputElement>;
-  const products = document.querySelectorAll(
-    ".product-container"
-  ) as NodeListOf<HTMLElement>;
-  const marquesFilters = document.querySelectorAll(
-    ".marques-container > .marque-list > img"
-  );
-
-  const showFilterBtn = document.getElementById("show-filters") as HTMLElement;
-  const closeFilterBtn = document.getElementById(
-    "close-filters"
-  ) as HTMLElement;
-  const filterContainer = document.querySelector(
-    ".background-black"
-  ) as HTMLElement;
-
-  showFilterBtn.addEventListener("click", () => {
-    filterContainer.classList.remove("hidden");
-  });
-
-  closeFilterBtn.addEventListener("click", () => {
-    filterContainer.classList.add("hidden");
-  });
-
+  const pageTitle = document.querySelector("h1") as HTMLElement;
   const url = new URL(window.location.href);
-  const searchParams = url.searchParams;
+  const searchParams = new URLSearchParams(url.search);
+  const breadcrumb = document.getElementById("last-breadcrumb") as HTMLElement;
+  const products = document.querySelectorAll(
+    ".product-element"
+  ) as NodeListOf<HTMLElement>;
 
-  marquesFilters.forEach((marque) => {
-    marque.addEventListener("click", () => {
-      lastBreadcrumb.textContent = marque.id;
-      searchParams.set("category", marque.classList.value);
-      url.search = searchParams.toString();
-      window.history.replaceState({}, "", url.toString());
-      categoriesFilters.forEach((element) => {
-        if (element.value === marque.classList.value) {
-          element.checked = true;
-        } else {
-          element.checked = false;
-        }
-      });
-
-      products.forEach((product) => {
-        if (product.classList.contains(marque.classList.value)) {
-          product.classList.remove("hidden");
-        } else if (!product.classList.contains(marque.classList.value)) {
-          product.classList.add("hidden");
-        }
-      });
-    });
-  });
-
-  categoriesFilters.forEach((category) => {
-    if (!searchParams.get("category")) {
-      categoriesFilters[0].checked = true;
-      lastBreadcrumb.textContent = categoriesFilters[0].name;
-    }
-    if (category.value === searchParams.get("category")) {
-      categoriesFilters.forEach((element) => {
-        if (element.value !== category.value) {
-          element.checked = false;
-        }
-      });
-      category.checked = true;
-      lastBreadcrumb.textContent = category.name;
-      products.forEach((product) => {
-        if (
-          category.value === "all" ||
-          product.classList.contains(category.value)
-        ) {
-          product.classList.remove("hidden");
-        } else if (!product.classList.contains(category.value)) {
-          product.classList.add("hidden");
-        }
-      });
-    }
-
-    category.addEventListener("change", () => {
-      if (category.checked) {
-        lastBreadcrumb.textContent = category.name;
-        if (category.value !== "all") {
-          searchParams.set("category", category.value);
-        } else {
-          searchParams.delete("category");
-        }
+  const handleCheckboxChange = (checkbox: HTMLInputElement) => {
+    products.forEach((product) => {
+      if (checkbox.checked) {
+        checkboxes.forEach((otherCheckbox) => {
+          if (otherCheckbox !== checkbox) {
+            otherCheckbox.checked = false;
+          }
+        });
+        searchParams.set("category", checkbox.value);
         url.search = searchParams.toString();
-        window.history.replaceState({}, "", url.toString());
+        window.history.pushState({}, "", url.toString());
+        breadcrumb.textContent = checkbox.name;
+        product.classList.contains(checkbox.value)
+          ? product.classList.remove("hidden")
+          : product.classList.add("hidden");
       } else {
-        lastBreadcrumb.textContent = "Tous les produits";
+        searchParams.delete("category");
+        url.search = searchParams.toString();
+        window.history.pushState({}, "", url.toString());
+        breadcrumb.textContent = pageTitle.textContent;
+        product.classList.remove("hidden");
       }
-      categoriesFilters.forEach((element) => {
-        if (element.value !== category.value) {
-          element.checked = false;
-        }
-      });
-      products.forEach((product) => {
-        if (
-          category.value === "all" ||
-          product.classList.contains(category.value)
-        ) {
-          product.classList.remove("hidden");
-        } else if (!product.classList.contains(category.value)) {
-          product.classList.add("hidden");
-        }
-      });
+    });
+  };
+
+  checkboxes.forEach((checkbox) => {
+    if (searchParams.get("category") === checkbox.value) {
+      checkbox.checked = true;
+      handleCheckboxChange(checkbox);
+    }
+    checkbox.addEventListener("change", () => {
+      handleCheckboxChange(checkbox);
     });
   });
 }

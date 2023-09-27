@@ -87,6 +87,10 @@
     justify-items: center;
     place-items: start;
 
+    &::before {
+      display: none !important;
+    }
+
     @include var.breakpoint(tablet) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -271,13 +275,17 @@
       margin-left: 0.3em;
       font-weight: 600;
 
-      .category-title {
+      .category-title,
+      .filters-categories__item {
         margin-top: 2rem;
 
+        a,
         strong {
           margin-bottom: 0.3em;
           font-size: 2rem;
           font-weight: 700;
+          text-decoration: none;
+          color: black;
         }
       }
 

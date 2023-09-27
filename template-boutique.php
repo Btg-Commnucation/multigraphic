@@ -14,14 +14,11 @@ function display_categories($parent_id = 0)
     $categories = get_categories($args);
 
     if ($categories) {
-        echo $parent_id !== 0 ? '<ul class="filters-categories__container">' : '';
         foreach ($categories as $category) {
-            echo $parent_id !== 0 ? '<li class="filters-categories__item">' : '<li class="category-title">';
-            echo $parent_id !== 0 ? '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>' : '<strong>' . $category->name . '</strong>';
-            display_categories($category->term_id);
-            echo '</li>';
+            if ($parent_id === 0) {
+                echo '<li class="category-title"><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
+            }
         }
-        echo $parent_id !== 0 ? '</ul>' : '';
     }
 }
 ?>
@@ -63,7 +60,8 @@ function display_categories($parent_id = 0)
                         <strong>Filtrer les produits</strong>
                         <ul class="filters-categories__container">
                             <li class="filters-categories__item">
-                                <label for="all"><input class="checkbox" type="checkbox" name="Tous les produits" id="all" value="all">Tous les produits</label>
+                                <?php $shop_link = get_field('lien_boutique', 'option'); ?>
+                                <a href="<?= esc_url($shop_link['url']); ?>">Tous les produits</a>
                             </li>
                             <?php display_categories(); ?>
                         </ul>
@@ -88,13 +86,7 @@ function display_categories($parent_id = 0)
                             $product_categories = get_the_terms(get_the_ID(), 'product_cat');
                             $product_image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'full');
                         ?>
-                            <li class="product-container <?php
-                                                            if (!empty($product_categories)) {
-                                                                foreach ($product_categories as $category) {
-                                                                    echo $category->slug . ' ';
-                                                                }
-                                                            }
-                                                            ?>">
+                            <li class="product-container">
                                 <a href="<?php the_permalink(); ?>" class="product-link">
                                     <?php if ($product_image) {
                                         echo '<div class="image-container">
@@ -126,13 +118,13 @@ function display_categories($parent_id = 0)
         <div class="container-narrow">
             <h2>Nos marques</h2>
             <div class="text"><?php the_field('texte_court_marque'); ?></div>
-            <?php if (have_rows('logo_marque')) : ?>
+            <?php if (have_rows('logo_marque', 'option')) : ?>
                 <ul class="marques-container">
-                    <?php while (have_rows('logo_marque')) : the_row();
+                    <?php while (have_rows('logo_marque', 'option')) : the_row();
                         $img = get_sub_field('logo');
                         $marque = get_sub_field('marque');
                         if (!empty($marque)) {
-                            echo '<li class="marque-list"><img class="' . $marque[0]->slug . '" id="' . $marque[0]->name . '" src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
+                            echo '<li class="marque-list"><a href="' . get_term_link($marque[0]) . '"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></a></li>';
                         } else {
                             echo '<li class="marque-list"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
                         }
