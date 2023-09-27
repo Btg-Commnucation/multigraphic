@@ -15,7 +15,7 @@ function display_categories($parent_id = 0)
 
     if ($categories) {
         foreach ($categories as $category) {
-            if ($parent_id === 0) {
+            if ($parent_id === 0 && $category->name !== "Marques") {
                 echo '<li class="category-title"><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
             }
         }

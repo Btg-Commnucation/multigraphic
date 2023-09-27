@@ -181,6 +181,23 @@ if (devisToggle && devisPopup) {
 const boutiquePage = document.querySelector(
   "#boutique.category-product__page"
 ) as HTMLElement;
+const boutique = document.querySelector("#boutique") as HTMLElement;
+
+if (boutique) {
+  const showFilters = document.getElementById("show-filters") as HTMLElement;
+  const closeFilters = document.getElementById("close-filters") as HTMLElement;
+  const filters = document.querySelector(
+    ".filters-section > .background-black"
+  ) as HTMLElement;
+
+  closeFilters.addEventListener("click", () => {
+    filters.classList.add("hidden");
+  });
+
+  showFilters.addEventListener("click", () => {
+    filters.classList.remove("hidden");
+  });
+}
 
 if (boutiquePage) {
   const checkboxes = document.querySelectorAll(

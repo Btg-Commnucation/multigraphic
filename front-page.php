@@ -71,12 +71,16 @@
         <div class="container-narrow">
             <h2>Nos marques</h2>
             <div class="text"><?php the_field('texte_court_marque'); ?></div>
-            <?php if (have_rows('logo_marque')) : ?>
+            <?php if (have_rows('logo_marque', 'option')) : ?>
                 <ul class="marques-container">
-                    <?php while (have_rows('logo_marque')) : the_row();
+                    <?php while (have_rows('logo_marque', 'option')) : the_row();
                         $img = get_sub_field('logo');
-
-                        echo '<li class="marque-list"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
+                        $marque = get_sub_field('marque');
+                        if (!empty($marque)) {
+                            echo '<li class="marque-list"><a href="' . get_term_link($marque[0]) . '"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></a></li>';
+                        } else {
+                            echo '<li class="marque-list"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
+                        }
                     endwhile;
                     ?>
                 </ul>

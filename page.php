@@ -1,22 +1,28 @@
 <?php
+$category = get_queried_object();
+$parent_id = $category->parent;
+$parent_slug = null;
+if ($parent_id) {
+    $parent_category = get_term($parent_id, 'product_cat');
+    $parent_slug = $parent_category->slug;
+}
 
 function display_categories($parent_id)
 {
     $args = array(
         'taxonomy' => 'product_cat',
+        'parent' => $parent_id,
     );
 
-    $categories = get_categories($args);
+    $categories = get_terms($args);
 
     if ($categories) {
         echo '<ul class="filters-categories__container">';
         foreach ($categories as $category) {
-            if ($category->parent === $parent_id) {
-                echo '<li class="filters_categories__item">';
-                echo '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>';
-                display_categories($category->term_taxonomy_id);
-                echo '</li>';
-            }
+            echo '<li class="filters_categories__item">';
+            echo '<label for="' . $category->slug . '"><input class="checkbox" type="checkbox" id="' . $category->slug . '" name="' . $category->name . '" value="' . $category->slug . '"/>' . $category->name . '</label>';
+            display_categories($category->term_id);
+            echo '</li>';
         }
         echo '</ul>';
     }
@@ -29,11 +35,11 @@ function display_parent_categories($parent_id = 0)
         'parent' => $parent_id,
     );
 
-    $categories = get_categories($args);
+    $categories = get_terms($args);
 
     if ($categories) {
         foreach ($categories as $category) {
-            if ($parent_id === 0) {
+            if ($parent_id === 0 && $category->name !== "Marques") {
                 echo '<li class="category-title"><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
             }
         }
@@ -43,18 +49,31 @@ function display_parent_categories($parent_id = 0)
 get_header(); ?>
 
 <main id="boutique" class="category-product__page">
-    <?php $img_top = get_field('image_de_fond', 'product_cat_' . get_queried_object_id()); ?>
-    <section class="hero-banner" style="background: url(<?= esc_url($img_top['url']); ?>) no-repeat center;">
+    <?php $img_top = get_field('image_de_fond', 'product_cat_' . $category->term_id); ?>
+    <section class="hero-banner <?= $parent_slug === "marques" ? $parent_slug : '' ?>" style="background: url(<?= esc_url($img_top['url']); ?>) no-repeat center;">
         <div class="container-narrow">
             <h1 class="screen-reader-text"><?php the_title(); ?></h1>
             <div class="blue-content">
                 <div class="txt">
-                    <?php the_field('texte_court_marque', 'product_cat_' . get_queried_object_id()); ?>
+                    <?php the_field('texte_court_marque', 'product_cat_' . $category->term_id); ?>
                 </div>
             </div>
         </div>
     </section>
-    <section id="breadcrumbs">
+    <?php if ($parent_slug === "marques") : ?>
+        <section class="marques-exclusive-content">
+            <div class="container-narrow">
+                <?php $image_marque = get_field('logo_marque');
+                $marque_description = get_field('marque_description');
+                ?>
+                <img src="<?= esc_url($image_marque['url']); ?>" alt="<?= esc_attr($image_marque['alt']); ?>">
+                <div class="text">
+                    <?= $marque_description; ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+    <section id="breadcrumbs" class="<?= $parent_slug === "marques" ? "marque-breadcrumb" : "" ?>">
         <div class="container-narrow">
             <nav id="breadcrumbs-container">
                 <ul>
@@ -86,8 +105,11 @@ get_header(); ?>
                                 <a href="<?= esc_url($shop_link['url']);
                                             ?>">Tous les produits</a>
                             </li>
-                            <li class="filters-categories__item"><strong><?php the_title(); ?></strong></li>
-                            <?php display_categories(get_queried_object_id());
+                            <?php if ($parent_slug !== 'marques') : ?>
+                                <li class="filters-categories__item"><strong><?php the_title(); ?></strong></li>
+                            <?php
+                            endif;
+                            display_categories($category->term_id);
                             display_parent_categories();
                             ?>
                         </ul>
@@ -96,9 +118,8 @@ get_header(); ?>
             </section>
             <section class="products">
                 <?php
-                $category_id = get_queried_object_id();
-                $descendants = get_term_children($category_id, 'product_cat');
-                $categories = array_merge(array($category_id), $descendants);
+                $descendants = get_term_children($category->term_id, 'product_cat');
+                $categories = array_merge(array($category->term_id), $descendants);
                 foreach ($descendants as $descendant) {
                     $grandchildren = get_term_children($descendant, 'product_cat');
                     $categories = array_merge($categories, $grandchildren);
@@ -148,7 +169,7 @@ get_header(); ?>
                             </li>
                         <?php endwhile; ?>
                     </ul>
-                <?php wp_reset_postdata();
+                <?php wp_reset_query();
                 endif; ?>
             </section>
         </div>
@@ -163,7 +184,7 @@ get_header(); ?>
                         $img = get_sub_field('logo');
                         $marque = get_sub_field('marque');
                         if (!empty($marque)) {
-                            echo '<li class="marque-list"><a href="' . home_url('/') . 'categorie-produit/marques/?category=' . $marque[0]->slug . '"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></a></li>';
+                            echo '<li class="marque-list"><a href="' . get_term_link($marque[0]) . '"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></a></li>';
                         } else {
                             echo '<li class="marque-list"><img src="' . esc_url($img['url']) . '" alt="' . esc_attr($img['alt']) . '" title="' . esc_attr($img['title']) . '" /></li>';
                         }
