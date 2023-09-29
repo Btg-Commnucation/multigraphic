@@ -213,6 +213,7 @@
       align-items: center;
       font-size: 1.9rem;
       display: flex;
+      flex-wrap: wrap;
 
       li:not(:last-child)::after {
         content: ",";
@@ -412,5 +413,6 @@
 
   .marques {
     margin-bottom: 14.8rem;
+    margin-top: 8rem;
   }
 }

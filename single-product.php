@@ -52,12 +52,14 @@ $shop_link = get_field('lien_boutique', 'option');
     </article>
     <section class="specs">
         <div class="container-narrow">
-            <h2>
-                Tableau des spécifications
-            </h2>
-            <div class="specs-content">
-                <?php the_content(); ?>
-            </div>
+            <?php if (get_the_content()) : ?>
+                <h2>
+                    Tableau des spécifications
+                </h2>
+                <div class="specs-content">
+                    <?php the_content(); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
     <?php get_template_part('parts/same-product'); ?>

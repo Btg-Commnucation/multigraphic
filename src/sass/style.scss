@@ -48,3 +48,33 @@ h4 {
 .gray-background {
   background: var.$lightGray;
 }
+
+.text-flexible {
+  font-size: 1.9rem;
+
+  p:not(:first-of-type) {
+    margin-top: 0.5em;
+  }
+
+  @include var.breakpoint(tablet) {
+    font-size: 1.6rem;
+  }
+}
+
+.image-texte-flexible {
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+  align-items: center;
+  gap: 2rem;
+
+  img {
+    justify-self: center;
+  }
+
+  @include var.breakpoint(tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
