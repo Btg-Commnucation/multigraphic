@@ -1,9 +1,12 @@
 <article>
     <?php
+    $pages = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
     $args = array(
         "post_type" => "post",
-        "posts_per_page" => -1,
+        "posts_per_page" => 16,
         "post__not_in" => array(get_the_ID()),
+        'paged' => $paged
     );
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) : ?>
@@ -26,5 +29,15 @@
                 </li>
             <?php endwhile; ?>
         </ul>
+        <?php $pagination_args = array(
+            'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'format' => '?paged=%#%',
+            'current' => max(1, $paged),
+            'total' => $products->max_num_pages
+        ); ?>
+        <div class="pagination">
+            <?php echo paginate_links($pagination_args); ?>
+        </div>
+
     <?php endif; ?>
 </article>

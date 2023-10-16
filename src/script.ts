@@ -39,6 +39,9 @@ if (productPage) {
     loop: true,
     loopedSlides: 4,
     effect: "fade",
+    autoplay: {
+      delay: 5000,
+    },
     fadeEffect: { crossFade: true },
     thumbs: {
       swiper: swiperThumbs,
@@ -302,6 +305,9 @@ if (heroBanner) {
     loop: true,
     effect: "fade",
     fadeEffect: { crossFade: true },
+    autoplay: {
+      delay: 5000,
+    },
 
     pagination: {
       el: ".swiper-pagination",
@@ -325,6 +331,9 @@ if (sliderFront) {
     loop: true,
     effect: "fade",
     fadeEffect: { crossFade: true },
+    autoplay: {
+      delay: 5000,
+    },
 
     pagination: {
       el: ".swiper-pagination",

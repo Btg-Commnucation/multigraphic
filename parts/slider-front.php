@@ -31,7 +31,11 @@
                         <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>">
                         <div class="content">
                             <?php the_sub_field('texte'); ?>
-                            <a href="<?= get_term_link($parent_category) . '?category=' . $category_object->slug ?>" class="btn">Toutes nos <?= esc_html($category_object->name); ?></a>
+                            <?php if ($category_object->parent !== 0) : ?>
+                                <a href="<?= get_term_link($parent_category) . '?category=' . $category_object->slug ?>" class="btn"><?php if (get_sub_field("masculin_ou_feminin_") === "Masculin") : ?> Tous <?php else : ?>Toutes <?php endif; ?> nos <?= esc_html($category_object->name); ?></a>
+                            <?php else :  ?>
+                                <a href="<?= get_term_link($category_object) ?>" class="btn"><?php if (get_sub_field("masculin_ou_feminin_") === "Masculin") : ?> Tous <?php else : ?>Toutes <?php endif; ?> nos <?= esc_html($category_object->name); ?></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endwhile; ?>

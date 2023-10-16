@@ -1,21 +1,21 @@
 <?php
-$current_product_id = get_the_ID();
+$current_product = wc_get_product(get_the_ID());
 
-$suggested_products = wc_get_related_products($current_product_id, 4);
+// Récupération des produits liés
+$upsells = $current_product->get_upsell_ids();
 
-if (!empty($suggested_products)) :
-?>
+if ($upsells) : ?>
 
     <section class="same-product">
         <div class="container-narrow">
-            <h2>Produit similaires</h2>
+            <h2>Produits suggérés</h2>
             <ul class="products-container">
-                <?php foreach ($suggested_products as $product_id) :
-                    $product = wc_get_product($product_id);
-                    $product_categories = wc_get_product_category_list($product_id);
+                <?php foreach ($upsells as $upsell_id) :
+                    $product = wc_get_product($upsell_id);
+                    $product_categories = wc_get_product_category_list($upsell_id);
                 ?>
                     <li>
-                        <a href="<?= get_permalink($product_id); ?>" class="product-link">
+                        <a href="<?= get_permalink($upsell_id); ?>" class="product-link">
                             <?= $product->get_image(); ?>
                             <strong><?= $product->get_name(); ?></strong>
                             <ul class="categories-same-product">

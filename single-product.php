@@ -34,12 +34,14 @@ $shop_link = get_field('lien_boutique', 'option');
                     <?php the_excerpt(); ?>
                 </div>
                 <?php $file_link = get_field('lien_brochure');
-                $file_target = $file_link['target'] ? $file_link['target'] : '_self';
+                if ($file_link) :
+                    $file_target = $file_link['target'] ? $file_link['target'] : '_self';
                 ?>
-                <a href="<?= esc_url($file_link['url']); ?>" title="<?= esc_html($file_link['title']); ?>" target="<?= esc_attr($file_target); ?>" class="btn download">
-                    <?php get_template_part('parts/download-svg'); ?>
-                    Télécharger la brochure
-                </a>
+                    <a href="<?= esc_url($file_link['url']); ?>" title="<?= esc_html($file_link['title']); ?>" target="<?= esc_attr($file_target); ?>" class="btn download">
+                        <?php get_template_part('parts/download-svg'); ?>
+                        Télécharger la brochure
+                    </a>
+                <?php endif; ?>
                 <button class="btn brochure" id="devis-toggle">
                     <?php get_template_part("parts/brochure"); ?>
                     Demande de devis
@@ -56,9 +58,14 @@ $shop_link = get_field('lien_boutique', 'option');
                 <h2>
                     Tableau des spécifications
                 </h2>
-                <div class="specs-content">
-                    <?php the_content(); ?>
-                </div>
+                <?php if (get_field('plusieurs_modeles' === "Non")) {
+                    echo '<div class="specs-content">';
+                    the_content();
+                    echo '</div>';
+                } else {
+                    get_template_part('parts/specs-table');
+                }
+                ?>
             <?php endif; ?>
         </div>
     </section>

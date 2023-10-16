@@ -1,0 +1,58 @@
+@use "../abstracts" as var;
+
+#product {
+  .specs {
+    .specs-content.table-vers {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3.6rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px #00000029;
+      text-align: center;
+
+      @include var.breakpoint(tablet) {
+        padding: 2rem 1rem;
+        gap: 0.1rem;
+      }
+
+      &:first-of-type {
+        p {
+          text-transform: uppercase;
+
+          @include var.breakpoint(420px) {
+            text-transform: initial;
+          }
+        }
+      }
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+      }
+
+      &:nth-of-type(odd) {
+        background: #fafafa;
+      }
+
+      p {
+        display: initial;
+        background: transparent;
+        padding: 0;
+        box-shadow: unset;
+        border-radius: none;
+
+        @include var.breakpoint(tablet) {
+          font-size: 1.6rem;
+        }
+
+        @include var.breakpoint(550px) {
+          font-size: 1.4rem;
+        }
+
+        @include var.breakpoint(370px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -454,3 +454,38 @@
 #breadcrumbs.marque-breadcrumb {
   margin-top: 2.6rem !important;
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5em;
+  font-size: 2.7rem;
+  font-weight: 300;
+  gap: 0.7rem;
+
+  span {
+    color: white;
+    background: var.$blue;
+    font-weight: 700;
+    padding-inline: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding-inline: 1rem;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: white;
+      background: var.$blue;
+    }
+  }
+
+  .next,
+  .prev {
+    display: none;
+  }
+}

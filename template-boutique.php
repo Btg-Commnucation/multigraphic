@@ -15,7 +15,7 @@ function display_categories($parent_id = 0)
 
     if ($categories) {
         foreach ($categories as $category) {
-            if ($parent_id === 0 && $category->name !== "Marques") {
+            if ($parent_id === 0) {
                 echo '<li class="category-title"><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
             }
         }
@@ -69,10 +69,14 @@ function display_categories($parent_id = 0)
                 </div>
             </section>
             <section class="products">
-                <?php $args = array(
+                <?php
+                $pages = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+                $args = array(
                     'post_type' => 'product',
-                    'posts_per_page' => -1,
-                    'order' => 'DESC'
+                    'posts_per_page' => 9,
+                    'order' => 'DESC',
+                    'paged' => $paged
                 );
 
                 $products = new WP_Query($args);
@@ -109,8 +113,20 @@ function display_categories($parent_id = 0)
                             </li>
                         <?php endwhile; ?>
                     </ul>
-                <?php wp_reset_postdata();
-                endif; ?>
+                    <?php
+                    wp_reset_postdata();
+
+                    $pagination_args = array(
+                        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                        'format' => '?paged=%#%',
+                        'current' => max(1, $paged),
+                        'total' => $products->max_num_pages
+                    ); ?>
+                    <div class="pagination">
+                        <?php echo paginate_links($pagination_args); ?>
+                    </div>
+
+                <?php endif; ?>
             </section>
         </div>
     </article>
