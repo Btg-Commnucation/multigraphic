@@ -12,7 +12,11 @@
                                 "container" => "nav",
                                 "container_class" => "societe-menu",
                                 'menu_class' => '',
-                                'menu_id' => ''
+                                'menu_id' => '',
+                                'items_wrap' => '<ul id="%1$s" class="%2$s">
+                                %3$s
+                                <li class="footer-toggler newsletter-toggle">S\'abonner à la newsletter</li>
+                                </ul>'
                             )
                         ); ?>
                     </div>

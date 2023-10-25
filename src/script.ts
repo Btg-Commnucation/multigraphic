@@ -165,6 +165,7 @@ const lastBreadcrumb = document.getElementById(
 
 if (closeDevis && devisPopup) {
   closeDevis.addEventListener("click", () => {
+    document.body.style.overflow = "auto";
     devisPopup.classList.add("hidden");
   });
 }
@@ -172,6 +173,7 @@ if (closeDevis && devisPopup) {
 if (devisToggle && devisPopup) {
   devisToggle.addEventListener("click", () => {
     devisPopup.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
     setTimeout(() => {
       if (formPageTitle !== null && formSecretField !== null) {
         formSecretField.value = formPageTitle.textContent || "";

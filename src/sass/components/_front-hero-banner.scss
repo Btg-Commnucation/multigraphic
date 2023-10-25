@@ -6,6 +6,10 @@
       width: 100%;
       height: 629px;
       position: relative;
+
+      @include var.breakpoint(mobile) {
+        height: auto;
+      }
     }
 
     .swiper-slide {
@@ -51,7 +55,9 @@
 
         @include var.breakpoint(mobile) {
           position: initial;
-          height: 100%;
+          width: 100%;
+          aspect-ratio: 1920/629;
+          background-size: contain !important;
         }
       }
 
@@ -71,10 +77,12 @@
         @include var.breakpoint(mobile) {
           width: 100%;
           max-width: 100%;
+          min-height: 488px;
         }
 
         @include var.breakpoint(705px) {
           padding: 3rem;
+          padding-bottom: 5rem;
         }
 
         h2 {

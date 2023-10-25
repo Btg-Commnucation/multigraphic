@@ -33,7 +33,7 @@
             'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
             'format' => '?paged=%#%',
             'current' => max(1, $paged),
-            'total' => $products->max_num_pages
+            'total' => $the_query->max_num_pages
         ); ?>
         <div class="pagination">
             <?php echo paginate_links($pagination_args); ?>

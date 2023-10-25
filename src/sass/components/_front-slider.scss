@@ -143,12 +143,11 @@
       }
 
       @include var.breakpoint(466px) {
-        left: -43%;
+        left: -39%;
       }
 
       @include var.breakpoint(390px) {
         top: 47% !important;
-        left: -41%;
       }
     }
 
