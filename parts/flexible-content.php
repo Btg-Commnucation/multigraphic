@@ -6,13 +6,17 @@
                 <?php the_sub_field('lien_video'); ?>
             </div>
 
-        <?php elseif (get_row_layout() === 'text') : ?>
-            <div class="text-flexible"><?php the_sub_field('texte'); ?></div>
-        <?php elseif (get_row_layout() === 'image_+_texte') : ?>
-            <div class="image-texte-flexible">
-                <?php $image = get_sub_field('image'); ?>
-                <img src="<?= esc_url($image['url']) ?>" alt="<?= esc_attr($image['alt']); ?>">
+        <?php elseif (get_row_layout() === 'texte') : ?>
+            <div class="container-narrow">
                 <div class="text-flexible"><?php the_sub_field('texte'); ?></div>
+            </div>
+        <?php elseif (get_row_layout() === 'image_+_texte') : ?>
+            <div class="container-narrow">
+                <div class="image-texte-flexible">
+                    <?php $image = get_sub_field('image'); ?>
+                    <img src="<?= esc_url($image['url']) ?>" alt="<?= esc_attr($image['alt']); ?>">
+                    <div class="text-flexible"><?php the_sub_field('texte'); ?></div>
+                </div>
             </div>
         <?php endif; ?>
     <?php endwhile; ?>
